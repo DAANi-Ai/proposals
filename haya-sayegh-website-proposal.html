@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Build Proposal for Haya AI | ForeShiloh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFBFD;
+    --surface: #F0F3F8;
+    --card: #ffffff;
+    --border: rgba(15,29,53,0.08);
+    --border-hover: rgba(15,29,53,0.15);
+    --navy: #0F1D35;
+    --navy-deep: #070D1A;
+    --royal: #1B3458;
+    --blue: #5B9BD5;
+    --blue-dark: #3A7CC9;
+    --sapphire: #2C5A8F;
+    --silver: #B8C8DC;
+    --platinum: #D8E2EE;
+    --ice: #F0F3F8;
+    --text: #2A3548;
+    --text-bright: #0F1D35;
+    --text-dim: rgba(15,29,53,0.4);
+    --text-muted: rgba(15,29,53,0.55);
+    --check-green: #2C5A8F;
+    --check-bg: rgba(91,155,213,0.08);
+    --check-border: rgba(91,155,213,0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 0 32px; }
+
+  /* Header */
+  .header {
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+  .header-brand .ai { color: var(--blue); }
+  .header-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+  }
+  .header-by {
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 80px 0 60px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--ice) 100%);
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--navy);
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+  }
+  .hero .subtitle {
+    font-size: 15px;
+    color: var(--text-muted);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+  .hero .prepared-for {
+    margin-top: 40px;
+    padding: 24px 32px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    display: inline-block;
+    box-shadow: 0 2px 12px rgba(15,29,53,0.04);
+  }
+  .hero .prepared-for .label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+  }
+  .hero .prepared-for .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--navy);
+    letter-spacing: 1px;
+  }
+
+  /* Sections */
+  .section {
+    padding: 56px 0;
+    border-top: 1px solid var(--border);
+  }
+  .section-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 14px;
+  }
+  .section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+  }
+  .section p {
+    color: var(--text);
+    margin-bottom: 16px;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  /* Option Cards */
+  .option-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 0 2px 12px rgba(15,29,53,0.03);
+  }
+  .option-card.recommended {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 1px var(--blue), 0 8px 32px rgba(91,155,213,0.1);
+  }
+  .option-badge {
+    position: absolute;
+    top: -12px;
+    right: 24px;
+    background: linear-gradient(135deg, var(--sapphire), var(--blue));
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 20px;
+  }
+  .option-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .option-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .option-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+  .option-price { text-align: right; }
+  .option-price .amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 400;
+    color: var(--navy);
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+  .option-price .currency {
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--text-dim);
+  }
+  .option-price .term {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  /* Divider */
+  .divider {
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue), var(--silver));
+    margin: 24px 0;
+  }
+
+  /* Feature Lists */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 24px;
+    margin-top: 20px;
+  }
+  @media (max-width: 600px) { .feature-grid { grid-template-columns: 1fr; } }
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text);
+    padding: 7px 0;
+  }
+  .feature-check {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border-radius: 50%;
+    background: var(--check-bg);
+    border: 1px solid var(--check-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  .feature-check svg { width: 12px; height: 12px; }
+
+  /* Maintenance */
+  .maintenance-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: var(--ice);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  .maintenance-row .label { font-size: 14px; color: var(--text); }
+  .maintenance-row .price {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  /* Feature Cards */
+  .feature-card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  @media (max-width: 600px) { .feature-card-grid { grid-template-columns: 1fr; } }
+  .feature-card {
+    padding: 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(15,29,53,0.03);
+  }
+  .feature-card .fc-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .feature-card .fc-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* Coming Soon */
+  .coming-soon-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  @media (max-width: 600px) { .coming-soon-grid { grid-template-columns: 1fr; } }
+  .coming-soon-item {
+    padding: 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(15,29,53,0.03);
+  }
+  .coming-soon-item .icon { font-size: 28px; margin-bottom: 10px; }
+  .coming-soon-item .title {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .coming-soon-item .tag {
+    font-size: 10px;
+    color: var(--blue);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* Timeline */
+  .timeline { margin-top: 24px; }
+  .timeline-step {
+    display: flex;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .timeline-step:last-child { border-bottom: none; }
+  .timeline-num {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--royal), var(--sapphire));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .timeline-content .step-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .timeline-content .step-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 3px;
+    line-height: 1.6;
+  }
+
+  /* Payment Table */
+  .payment-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+  }
+  .payment-table th {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 2px solid var(--border);
+  }
+  .payment-table td {
+    font-size: 14px;
+    color: var(--text);
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .payment-table tr:last-child td { border-bottom: none; }
+  .payment-table .amount-col {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: var(--navy);
+    text-align: right;
+  }
+  .payment-table .option-row td {
+    padding-top: 24px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 15px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Note Box */
+  .note-box {
+    padding: 20px 24px;
+    background: var(--check-bg);
+    border: 1px solid var(--check-border);
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--text);
+    margin-top: 16px;
+    line-height: 1.7;
+  }
+
+  /* Payment Schedule Cards */
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .schedule-card {
+    padding: 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    border-top: 3px solid var(--blue);
+    box-shadow: 0 2px 8px rgba(15,29,53,0.03);
+  }
+  .schedule-card .sc-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .schedule-card .sc-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    line-height: 1.6;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 56px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--ice) 100%);
+  }
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--silver);
+  }
+  .footer-brand .ai { color: var(--platinum); }
+  .footer-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--silver);
+    margin: 20px auto;
+  }
+  .footer-prepared {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+  }
+  .footer-by {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .footer-strapline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: var(--silver);
+    font-style: italic;
+    margin-top: 16px;
+  }
+  .footer-contact {
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  .footer-contact a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .hero { background: #fff; }
+    .option-card.recommended { box-shadow: none; border: 2px solid var(--blue); }
+    .container { max-width: 100%; padding: 0 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-inner">
+      <div>
+        <div class="header-brand">Haya <span class="ai">AI</span></div>
+        <div class="header-by">Prepared by ForeShiloh</div>
+      </div>
+      <div class="header-date">21 April 2026</div>
+    </div>
+  </div>
+
+</div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="container">
+    <div class="hero-label">Website Build Proposal</div>
+    <h1>Your Digital Foundation</h1>
+    <p class="subtitle">A professional web presence with payment integration, email capture, and bilingual support to launch Haya AI.</p>
+    <div class="prepared-for">
+      <div class="label">Prepared For</div>
+      <div class="name">Haya Sayegh</div>
+    </div>
+    </div>
+  </div>
+
+<div class="container">
+
+  <!-- Context -->
+  <div class="section">
+    <div class="section-label">Context</div>
+    <h2>What You Need</h2>
+    <p>You are launching Haya AI and need a professional digital presence that reflects the quality of your work. Your current site served its purpose as a starting point, but to attract premium clients and accept payments, you need a proper website built for a luxury tech brand.</p>
+    <p>This proposal presents two options: a full multi-page website or a focused landing page. Both include Stripe payment integration, email capture, bilingual support (English and Spanish), and a refined, modern design aligned with your brand identity.</p>
+  </div>
+
+  <!-- Option A -->
+  <div class="section">
+    <div class="section-label">Your Options</div>
+
+    <div class="option-card recommended">
+      <div class="option-badge">Recommended</div>
+      <div class="option-header">
+        <div>
+          <div class="option-title">Option A: Full Website</div>
+          <div class="option-desc">Multi-page professional website with all features</div>
+        </div>
+        <div class="option-price">
+          <div class="amount"><span class="currency">&pound;</span>2,000</div>
+          <div class="term">one-off build</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="feature-grid">
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <span>5-6 pages: Home, Services, About, Contact, AI Solutions, Coming Soon</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <span>Stripe payment gateway integration</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <span>Email capture and newsletter signup</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <span>Bilingual: English and Spanish toggle</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <span>Luxury tech design matching your brand identity</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <span>Fully mobile responsive</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <span>Custom domain setup and hosting</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <span>SEO-ready structure and meta tags</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <span>Contact form with email notifications</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <span>"Coming Soon" sections for future services</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <span>SSL certificate and security headers</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <span>Analytics integration</span>
+        </div>
+      </div>
+
+      <div class="maintenance-row">
+        <div class="label">Optional monthly maintenance, updates, and hosting support</div>
+        <div class="price">&pound;150/month</div>
+      </div>
+    </div>
+
+    <!-- Option B -->
+    <div class="option-card">
+      <div class="option-header">
+        <div>
+          <div class="option-title">Option B: Landing Page</div>
+          <div class="option-desc">Single-page website with core features</div>
+        </div>
+        <div class="option-price">
+          <div class="amount"><span class="currency">&pound;</span>1,000</div>
+          <div class="term">one-off build</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="feature-grid">
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <span>Single scrollable page with all key sections</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <span>Stripe payment gateway integration</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <span>Email capture and signup form</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <span>Bilingual: English and Spanish toggle</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <span>Luxury tech design matching your brand identity</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <span>Fully mobile responsive</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <span>Custom domain setup and hosting</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <span>"Coming Soon" teaser sections</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <span>SSL certificate and security headers</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          <span>Analytics integration</span>
+        </div>
+      </div>
+
+      <div class="maintenance-row">
+        <div class="label">Optional monthly maintenance and hosting support</div>
+        <div class="price">&pound;75/month</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Standard Features -->
+  <div class="section">
+    <div class="section-label">Included in Both Options</div>
+    <h2>Standard Features</h2>
+
+    <div class="feature-card-grid">
+      <div class="feature-card">
+        <div class="fc-title">Stripe Payments</div>
+        <div class="fc-desc">Accept payments directly on your website. Secure checkout, invoicing, and payment tracking.</div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-title">Email Capture</div>
+        <div class="fc-desc">Visitors enter their email to receive information about your services. Build your audience from day one.</div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-title">Bilingual Toggle</div>
+        <div class="fc-desc">One-click language switch between English and Spanish. All content professionally localised for both markets.</div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-title">Brand-Aligned Design</div>
+        <div class="fc-desc">Built using your Haya AI brand identity. Midnight navy, Haya blue, silver accents. Prestige at every touchpoint.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Coming Soon -->
+  <div class="section">
+    <div class="section-label">Future-Ready</div>
+    <h2>Coming Soon Sections</h2>
+    <p>Both options include placeholder sections for services you plan to offer in the future. These are professionally designed "Coming Soon" areas that show visitors where you are heading.</p>
+
+    <div class="coming-soon-grid">
+      <div class="coming-soon-item">
+        <div class="icon">&#x1f393;</div>
+        <div class="title">AI Education</div>
+        <div class="tag">Coming Soon</div>
+      </div>
+      <div class="coming-soon-item">
+        <div class="icon">&#x1f6e1;</div>
+        <div class="title">Cyber Security</div>
+        <div class="tag">Coming Soon</div>
+      </div>
+      <div class="coming-soon-item">
+        <div class="icon">&#x1f4f1;</div>
+        <div class="title">SaaS and App Development</div>
+        <div class="tag">Coming Soon</div>
+      </div>
+    </div>
+
+    <div class="note-box" style="margin-top: 20px;">
+      When you are ready to launch these services, additional pages or sections can be added as part of the monthly maintenance plan, or quoted separately as a one-off update.
+    </div>
+  </div>
+
+  <!-- Timeline -->
+  <div class="section">
+    <div class="section-label">Timeline</div>
+    <h2>How It Works</h2>
+
+    <div class="timeline">
+      <div class="timeline-step">
+        <div class="timeline-num">1</div>
+        <div class="timeline-content">
+          <div class="step-title">Discovery and Branding</div>
+          <div class="step-desc">We agree on colours, fonts, tone of voice, and page structure. You provide any copy, images, and brand assets you want included.</div>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-num">2</div>
+        <div class="timeline-content">
+          <div class="step-title">Design and Build</div>
+          <div class="step-desc">We build your website with all features included. You receive a preview link for review before it goes live.</div>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-num">3</div>
+        <div class="timeline-content">
+          <div class="step-title">Revisions</div>
+          <div class="step-desc">Up to 2 rounds of feedback and revisions. We make sure you are happy with every detail before launch.</div>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-num">4</div>
+        <div class="timeline-content">
+          <div class="step-title">Launch</div>
+          <div class="step-desc">Domain connected, Stripe activated, email capture live. Your website is open for business.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      Estimated delivery: 2 weeks for the landing page, 3-4 weeks for the full website. Timeline starts once the deposit is received and all brand materials are provided.
+    </div>
+  </div>
+
+  <!-- Payment -->
+  <div class="section">
+    <div class="section-label">Investment</div>
+    <h2>Payment Summary</h2>
+
+    <table class="payment-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th style="text-align: right;">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="option-row">
+          <td colspan="2">Option A: Full Website</td>
+        </tr>
+        <tr>
+          <td>Website build (one-off)</td>
+          <td class="amount-col">&pound;2,000</td>
+        </tr>
+        <tr>
+          <td>Monthly maintenance (optional)</td>
+          <td class="amount-col">&pound;150/mo</td>
+        </tr>
+        <tr class="option-row">
+          <td colspan="2">Option B: Landing Page</td>
+        </tr>
+        <tr>
+          <td>Landing page build (one-off)</td>
+          <td class="amount-col">&pound;1,000</td>
+        </tr>
+        <tr>
+          <td>Monthly maintenance (optional)</td>
+          <td class="amount-col">&pound;75/mo</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top: 28px;">
+      <div class="section-label" style="margin-bottom: 14px;">Payment Schedule</div>
+      <div class="schedule-grid">
+        <div class="schedule-card">
+          <div class="sc-title">50% Deposit</div>
+          <div class="sc-desc">Due before work begins. Secures your build slot and covers initial design and setup.</div>
+        </div>
+        <div class="schedule-card">
+          <div class="sc-title">50% on Completion</div>
+          <div class="sc-desc">Due on launch day, once you have reviewed and approved the final site.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Maintenance -->
+  <div class="section">
+    <div class="section-label">Ongoing Support</div>
+    <h2>What Monthly Maintenance Covers</h2>
+
+    <div class="feature-grid">
+      <div class="feature-item">
+        <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+        <span>Content updates in both languages</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+        <span>Hosting management and uptime monitoring</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+        <span>Security patches and SSL renewal</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+        <span>Stripe payment support</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+        <span>Minor design tweaks and improvements</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5A8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+        <span>Priority email support</span>
+      </div>
+    </div>
+
+    <div class="note-box" style="margin-top: 20px;">
+      Maintenance is optional and billed monthly. You can cancel at any time with 30 days notice. Without maintenance, the site continues to run, but updates and support are quoted separately.
+    </div>
+  </div>
+
+  <!-- Next Steps -->
+  <div class="section">
+    <div class="section-label">Next Steps</div>
+    <h2>Ready to Get Started?</h2>
+    <p>Choose your preferred option and we will schedule a short call to finalise the details and get the build underway. The sooner we start, the sooner Haya AI has a proper home online.</p>
+    <p style="margin-top: 16px; font-size: 14px; color: var(--text-dim);">This proposal is valid for 14 days from the date above.</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-brand">Haya <span class="ai">AI</span></div>
+    <div class="footer-divider"></div>
+    <div class="footer-prepared">Prepared By</div>
+    <div class="footer-by">Daniel Kiing, AI Business Architect</div>
+    <div class="footer-strapline">You dream, we build. AI powers them both.</div>
+    <div class="footer-contact">
+      <a href="mailto:daniel@foreshiloh.com">daniel@foreshiloh.com</a> / ForeShiloh / Sheffield, UK
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
