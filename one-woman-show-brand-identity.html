@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Woman Show | Brand Identity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #FBF8FC;
+    color: #2D1B3D;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 880px; margin: 0 auto; padding: 0 40px; }
+
+  /* Cover */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(160deg, #2A1240 0%, #3D1F56 30%, #5A3478 60%, #7B4FA0 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: "";
+    position: absolute;
+    top: -40%;
+    right: -25%;
+    width: 70%;
+    height: 140%;
+    background: radial-gradient(ellipse at center, rgba(200,162,212,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cover::after {
+    content: "";
+    position: absolute;
+    bottom: -30%;
+    left: -15%;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(232,180,200,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cover-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba(220,200,235,0.5);
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 1;
+  }
+  .cover-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 400;
+    color: #F3EDF7;
+    letter-spacing: 4px;
+    position: relative;
+    z-index: 1;
+    line-height: 1.15;
+  }
+  .cover-brand .accent {
+    color: #D4B0E0;
+    font-style: italic;
+    font-weight: 500;
+  }
+  .cover-tagline {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(220,200,235,0.45);
+    margin-top: 32px;
+    position: relative;
+    z-index: 1;
+  }
+  .cover-line {
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(to bottom, rgba(200,162,212,0.5), transparent);
+    margin-top: 64px;
+    position: relative;
+    z-index: 1;
+  }
+  .cover-footer {
+    position: absolute;
+    bottom: 40px;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: rgba(220,200,235,0.25);
+  }
+
+  /* Section Base */
+  .section {
+    padding: 80px 0;
+    border-bottom: 1px solid rgba(100,50,140,0.06);
+  }
+  .section:last-child { border-bottom: none; }
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: rgba(107,63,160,0.3);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: #3D1F56;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  .section-desc {
+    font-size: 15px;
+    color: #6B5A7A;
+    max-width: 620px;
+    line-height: 1.85;
+    margin-bottom: 40px;
+  }
+
+  /* Colour Palette */
+  .palette-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+  .palette-card {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(100,50,140,0.06);
+    background: #fff;
+  }
+  .palette-swatch {
+    height: 140px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 16px;
+  }
+  .palette-swatch .hex {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    padding: 4px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(8px);
+  }
+  .palette-info {
+    padding: 16px;
+  }
+  .palette-name {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2D1B3D;
+    margin-bottom: 2px;
+  }
+  .palette-role {
+    font-size: 12px;
+    color: #9A8AAD;
+  }
+
+  /* Extended Palette */
+  .palette-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .palette-chip {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(100,50,140,0.06);
+    background: #fff;
+  }
+  .palette-chip-swatch {
+    height: 64px;
+  }
+  .palette-chip-info {
+    padding: 10px 12px;
+  }
+  .palette-chip-name {
+    font-size: 11px;
+    font-weight: 600;
+    color: #2D1B3D;
+  }
+  .palette-chip-hex {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #9A8AAD;
+    margin-top: 2px;
+  }
+
+  /* Typography */
+  .type-specimen {
+    padding: 40px;
+    background: #fff;
+    border: 1px solid rgba(100,50,140,0.06);
+    border-radius: 16px;
+    margin-bottom: 20px;
+  }
+  .type-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9A8AAD;
+    margin-bottom: 16px;
+  }
+  .type-display {
+    font-size: 48px;
+    color: #3D1F56;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .type-body {
+    font-size: 14px;
+    color: #6B5A7A;
+    line-height: 1.8;
+  }
+  .type-meta {
+    display: flex;
+    gap: 32px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(100,50,140,0.06);
+  }
+  .type-meta-item .label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #9A8AAD;
+  }
+  .type-meta-item .value {
+    font-size: 13px;
+    color: #2D1B3D;
+    margin-top: 2px;
+  }
+
+  /* Voice & Tone */
+  .voice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .voice-card {
+    padding: 32px;
+    background: #fff;
+    border: 1px solid rgba(100,50,140,0.06);
+    border-radius: 16px;
+  }
+  .voice-do {
+    border-left: 3px solid #7B4FA0;
+  }
+  .voice-dont {
+    border-left: 3px solid #D4A0B9;
+  }
+  .voice-card-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .voice-do .voice-card-title { color: #7B4FA0; }
+  .voice-dont .voice-card-title { color: #C08098; }
+  .voice-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .voice-card li {
+    font-size: 14px;
+    color: #6B5A7A;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(100,50,140,0.04);
+  }
+  .voice-card li:last-child { border-bottom: none; }
+
+  /* Attributes */
+  .attr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .attr-card {
+    padding: 28px 20px;
+    background: #fff;
+    border: 1px solid rgba(100,50,140,0.06);
+    border-radius: 16px;
+    text-align: center;
+  }
+  .attr-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    font-size: 22px;
+  }
+  .attr-name {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #3D1F56;
+    margin-bottom: 4px;
+  }
+  .attr-desc {
+    font-size: 12px;
+    color: #9A8AAD;
+    line-height: 1.5;
+  }
+
+  /* Logo Usage */
+  .logo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .logo-card {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(100,50,140,0.06);
+  }
+  .logo-preview {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+  }
+  .logo-card-info {
+    padding: 16px;
+    background: #fff;
+  }
+  .logo-card-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #2D1B3D;
+  }
+  .logo-card-desc {
+    font-size: 12px;
+    color: #9A8AAD;
+    margin-top: 2px;
+  }
+
+  /* Dark Section */
+  .dark-section {
+    background: linear-gradient(160deg, #1E0E30 0%, #2A1240 40%, #3D1F56 70%, #5A3478 100%);
+    padding: 80px 0;
+    border-bottom: none;
+  }
+  .dark-section .section-num { color: rgba(220,200,235,0.3); }
+  .dark-section .section-title { color: #F3EDF7; }
+  .dark-section .section-desc { color: rgba(220,200,235,0.55); }
+
+  /* Mockup Cards */
+  .mockup-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .mockup-card {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+  }
+  .mockup-preview {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .mockup-card-info {
+    padding: 16px 20px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .mockup-card-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #D4B0E0;
+  }
+  .mockup-card-desc {
+    font-size: 12px;
+    color: rgba(220,200,235,0.4);
+    margin-top: 2px;
+  }
+
+  /* Business Card Preview */
+  .biz-card {
+    width: 280px;
+    height: 160px;
+    border-radius: 10px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .biz-card-dark {
+    background: linear-gradient(135deg, #1E0E30, #3D1F56);
+    border: 1px solid rgba(200,162,212,0.15);
+  }
+  .biz-card-light {
+    background: #FBF8FC;
+    border: 1px solid rgba(100,50,140,0.1);
+  }
+  .biz-card .brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+  .biz-card-dark .brand { color: #F3EDF7; }
+  .biz-card-dark .brand .accent { color: #D4B0E0; font-style: italic; }
+  .biz-card-light .brand { color: #3D1F56; }
+  .biz-card-light .brand .accent { color: #7B4FA0; font-style: italic; }
+  .biz-card .details {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    line-height: 1.8;
+  }
+  .biz-card-dark .details { color: rgba(220,200,235,0.5); }
+  .biz-card-light .details { color: #9A8AAD; }
+
+  /* Mission Statement */
+  .mission-block {
+    padding: 48px;
+    background: linear-gradient(135deg, rgba(123,79,160,0.04) 0%, rgba(212,176,224,0.08) 100%);
+    border: 1px solid rgba(123,79,160,0.08);
+    border-radius: 20px;
+    margin-bottom: 32px;
+  }
+  .mission-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 400;
+    font-style: italic;
+    color: #3D1F56;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .mission-body {
+    font-size: 15px;
+    color: #6B5A7A;
+    line-height: 1.85;
+  }
+
+  /* Values Grid */
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 32px;
+  }
+  .value-card {
+    padding: 32px;
+    background: #fff;
+    border: 1px solid rgba(100,50,140,0.06);
+    border-radius: 16px;
+  }
+  .value-card-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 32px;
+    font-weight: 300;
+    color: rgba(123,79,160,0.15);
+    margin-bottom: 8px;
+  }
+  .value-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #3D1F56;
+    margin-bottom: 8px;
+  }
+  .value-card-desc {
+    font-size: 14px;
+    color: #6B5A7A;
+    line-height: 1.7;
+  }
+
+  /* Footer */
+  .brand-footer {
+    padding: 60px 0;
+    text-align: center;
+    background: #FBF8FC;
+  }
+  .footer-prepared {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9A8AAD;
+    margin-bottom: 8px;
+  }
+  .footer-by {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: #6B5A7A;
+  }
+  .footer-by a {
+    color: #D4A843;
+    text-decoration: none;
+  }
+
+  @media print {
+    .cover { min-height: auto; padding: 120px 40px; }
+    .section, .dark-section { padding: 40px 0; }
+  }
+
+  @media (max-width: 768px) {
+    .cover-brand { font-size: 40px; letter-spacing: 2px; }
+    .attr-grid { grid-template-columns: 1fr 1fr; }
+    .palette-grid { grid-template-columns: 1fr; }
+    .palette-row { grid-template-columns: repeat(3, 1fr); }
+    .voice-grid { grid-template-columns: 1fr; }
+    .logo-grid { grid-template-columns: 1fr; }
+    .mockup-grid { grid-template-columns: 1fr; }
+    .values-grid { grid-template-columns: 1fr; }
+    .type-meta { flex-wrap: wrap; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Cover -->
+<div class="cover">
+  <div class="cover-label">Brand Identity Guide</div>
+  <div class="cover-brand">One Woman <span class="accent">Show</span></div>
+  <div class="cover-tagline">Your stage. Your rules. Your revolution.</div>
+  <div class="cover-line"></div>
+  <div class="cover-footer">Prepared by ForeShiloh  /  April 2026</div>
+</div>
+
+<div class="container">
+
+  <!-- 01 Brand Story -->
+  <div class="section">
+    <div class="section-num">01</div>
+    <div class="section-title">Brand Story</div>
+
+    <div class="mission-block">
+      <div class="mission-quote">"The AI industry is full of brilliant women who never got a seat at the table. So we built our own."</div>
+      <div class="mission-body">
+        One Woman Show exists because the AI revolution should not be a boys' club. Women make up half the world's talent, half the world's ideas, and half the world's ambition, yet they remain vastly underrepresented in the spaces where artificial intelligence is being built, discussed, and deployed. This is not a support group. This is a launchpad. A space where women learn AI on their own terms, build businesses with real tools, and connect with a community that celebrates progress over perfection. The name says it all: you are the whole show. The strategy, the vision, the execution. AI is just the instrument. You are the performance.
+      </div>
+    </div>
+
+    <div class="attr-grid">
+      <div class="attr-card">
+        <div class="attr-icon" style="background: rgba(123,79,160,0.08);">
+          <span>&#9733;</span>
+        </div>
+        <div class="attr-name">Empowering</div>
+        <div class="attr-desc">Every woman leaves knowing more than when she arrived</div>
+      </div>
+      <div class="attr-card">
+        <div class="attr-icon" style="background: rgba(212,176,224,0.15);">
+          <span>&#9829;</span>
+        </div>
+        <div class="attr-name">Inclusive</div>
+        <div class="attr-desc">No gatekeeping, no jargon walls, no "you should already know this"</div>
+      </div>
+      <div class="attr-card">
+        <div class="attr-icon" style="background: rgba(200,140,180,0.1);">
+          <span>&#10024;</span>
+        </div>
+        <div class="attr-name">Brilliant</div>
+        <div class="attr-desc">Unapologetically smart, ambitious, and ready to build</div>
+      </div>
+      <div class="attr-card">
+        <div class="attr-icon" style="background: rgba(123,79,160,0.08);">
+          <span>&#9878;</span>
+        </div>
+        <div class="attr-name">Fearless</div>
+        <div class="attr-desc">The courage to start, the tools to finish, the community to sustain</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 Brand Values -->
+  <div class="section">
+    <div class="section-num">02</div>
+    <div class="section-title">Core Values</div>
+    <div class="section-desc">These are the beliefs that shape every piece of content, every interaction, and every decision. They are not marketing statements. They are promises.</div>
+
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-card-num">01</div>
+        <div class="value-card-title">Representation Matters</div>
+        <div class="value-card-desc">Women cannot aspire to what they cannot see. One Woman Show puts women at the centre of the AI conversation, not as a footnote, not as a diversity statistic, but as the main act.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-card-num">02</div>
+        <div class="value-card-title">Skills Over Credentials</div>
+        <div class="value-card-desc">You do not need a computer science degree to build with AI. You need curiosity, guidance, and a community that meets you where you are. We teach by doing, not by lecturing.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-card-num">03</div>
+        <div class="value-card-title">Community, Not Competition</div>
+        <div class="value-card-desc">There is enough room for every woman at this table. We celebrate each other's wins, share openly, and build bridges between industries, backgrounds, and experience levels.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-card-num">04</div>
+        <div class="value-card-title">Action Over Theory</div>
+        <div class="value-card-desc">Ideas are wonderful. Shipping is better. Every lesson, workshop, and resource is designed to produce a tangible result. You will not just learn about AI. You will build with it.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 Colour Palette -->
+  <div class="section">
+    <div class="section-num">03</div>
+    <div class="section-title">Colour Palette</div>
+    <div class="section-desc">A soft, confident palette built on lilac, amethyst, and warm rose tones. These colours feel welcoming without being childish, sophisticated without being cold. The palette communicates warmth, creativity, and quiet power.</div>
+
+    <div class="palette-grid">
+      <div class="palette-card">
+        <div class="palette-swatch" style="background: linear-gradient(135deg, #2A1240, #3D1F56);">
+          <span class="hex" style="color: rgba(255,255,255,0.7); background: rgba(0,0,0,0.3);">#3D1F56</span>
+        </div>
+        <div class="palette-info">
+          <div class="palette-name">Rich Plum</div>
+          <div class="palette-role">Primary dark / backgrounds / authority</div>
+        </div>
+      </div>
+      <div class="palette-card">
+        <div class="palette-swatch" style="background: linear-gradient(135deg, #6B3FA0, #8B5FBF);">
+          <span class="hex" style="color: rgba(255,255,255,0.9); background: rgba(0,0,0,0.2);">#7B4FA0</span>
+        </div>
+        <div class="palette-info">
+          <div class="palette-name">Amethyst</div>
+          <div class="palette-role">Primary accent / CTAs / energy</div>
+        </div>
+      </div>
+      <div class="palette-card">
+        <div class="palette-swatch" style="background: linear-gradient(135deg, #C4A0D8, #D4B0E0);">
+          <span class="hex" style="color: rgba(0,0,0,0.4); background: rgba(255,255,255,0.5);">#D4B0E0</span>
+        </div>
+        <div class="palette-info">
+          <div class="palette-name">Soft Lilac</div>
+          <div class="palette-role">Secondary / warmth / softness</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="type-label" style="margin-top: 32px; margin-bottom: 16px;">Extended Palette</div>
+
+    <div class="palette-row">
+      <div class="palette-chip">
+        <div class="palette-chip-swatch" style="background: #1E0E30;"></div>
+        <div class="palette-chip-info">
+          <div class="palette-chip-name">Midnight</div>
+          <div class="palette-chip-hex">#1E0E30</div>
+        </div>
+      </div>
+      <div class="palette-chip">
+        <div class="palette-chip-swatch" style="background: #5A3478;"></div>
+        <div class="palette-chip-info">
+          <div class="palette-chip-name">Grape</div>
+          <div class="palette-chip-hex">#5A3478</div>
+        </div>
+      </div>
+      <div class="palette-chip">
+        <div class="palette-chip-swatch" style="background: #C88CB4;"></div>
+        <div class="palette-chip-info">
+          <div class="palette-chip-name">Blush Rose</div>
+          <div class="palette-chip-hex">#C88CB4</div>
+        </div>
+      </div>
+      <div class="palette-chip">
+        <div class="palette-chip-swatch" style="background: #E8CDE0;"></div>
+        <div class="palette-chip-info">
+          <div class="palette-chip-name">Petal</div>
+          <div class="palette-chip-hex">#E8CDE0</div>
+        </div>
+      </div>
+      <div class="palette-chip">
+        <div class="palette-chip-swatch" style="background: #F3EDF7;"></div>
+        <div class="palette-chip-info">
+          <div class="palette-chip-name">Pearl</div>
+          <div class="palette-chip-hex">#F3EDF7</div>
+        </div>
+      </div>
+      <div class="palette-chip">
+        <div class="palette-chip-swatch" style="background: #FBF8FC; border: 1px solid rgba(100,50,140,0.08);"></div>
+        <div class="palette-chip-info">
+          <div class="palette-chip-name">Whisper</div>
+          <div class="palette-chip-hex">#FBF8FC</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 20px; padding: 20px 24px; background: #fff; border: 1px solid rgba(100,50,140,0.06); border-radius: 12px;">
+      <div class="type-label" style="margin-bottom: 10px;">Usage Rules</div>
+      <div style="font-size: 14px; color: #6B5A7A; line-height: 1.8;">
+        Rich Plum is the foundation for dark sections, headers, and anything that needs weight. Amethyst is the signature colour, used for buttons, links, highlights, and moments of energy. Soft Lilac provides breathing room and warmth. Blush Rose is a supporting accent for callouts, quotes, and gentle emphasis. Use the Pearl and Whisper tones for backgrounds. Never use the full palette at once. Pick two or three colours per composition and let them breathe.
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 Typography -->
+  <div class="section">
+    <div class="section-num">04</div>
+    <div class="section-title">Typography</div>
+    <div class="section-desc">Two typefaces that balance elegance with clarity. Playfair Display carries emotional weight and celebrates the brand's personality. DM Sans keeps everything clean, modern, and readable. Together they feel premium, warm, and approachable.</div>
+
+    <div class="type-specimen">
+      <div class="type-label">Display / Headlines</div>
+      <div class="type-display" style="font-family: 'Playfair Display', serif; font-weight: 400;">
+        She did not wait for<br>permission. She built.
+      </div>
+      <div class="type-meta">
+        <div class="type-meta-item">
+          <div class="label">Typeface</div>
+          <div class="value">Playfair Display</div>
+        </div>
+        <div class="type-meta-item">
+          <div class="label">Weight</div>
+          <div class="value">Regular (400) / Medium (500) / Italic</div>
+        </div>
+        <div class="type-meta-item">
+          <div class="label">Usage</div>
+          <div class="value">Page titles, hero text, quotes, brand statements</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-label">Body / Interface</div>
+      <div class="type-display" style="font-family: 'DM Sans', sans-serif; font-size: 28px; font-weight: 400; letter-spacing: 0;">
+        AI is not a boys' club anymore.<br>Welcome to the main stage.
+      </div>
+      <div class="type-body" style="margin-top: 16px;">
+        One Woman Show is where ambitious women learn to build with AI, launch businesses powered by automation, and connect with a community that gets it. No jargon. No gatekeeping. Just real skills, real tools, and real women doing remarkable things.
+      </div>
+      <div class="type-meta">
+        <div class="type-meta-item">
+          <div class="label">Typeface</div>
+          <div class="value">DM Sans</div>
+        </div>
+        <div class="type-meta-item">
+          <div class="label">Weight</div>
+          <div class="value">Regular (400) / Medium (500) / SemiBold (600)</div>
+        </div>
+        <div class="type-meta-item">
+          <div class="label">Usage</div>
+          <div class="value">Body text, navigation, buttons, descriptions</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-label">Monospace / Technical</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 16px; color: #7B4FA0; letter-spacing: 0.02em; line-height: 1.8;">
+        onewomanshow.ai/learn<br>
+        confidence.level = "unstoppable"<br>
+        skills.unlocked += 12
+      </div>
+      <div class="type-meta">
+        <div class="type-meta-item">
+          <div class="label">Typeface</div>
+          <div class="value">JetBrains Mono</div>
+        </div>
+        <div class="type-meta-item">
+          <div class="label">Usage</div>
+          <div class="value">Stats, data points, code snippets, tech elements</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 Voice & Tone -->
+  <div class="section">
+    <div class="section-num">05</div>
+    <div class="section-title">Voice and Tone</div>
+    <div class="section-desc">One Woman Show speaks like your smartest friend who happens to be an AI expert. Warm, direct, encouraging, and never condescending. The brand has conviction without arrogance. It celebrates without patronising. It teaches without lecturing.</div>
+
+    <div class="voice-grid">
+      <div class="voice-card voice-do">
+        <div class="voice-card-title">The brand sounds like</div>
+        <ul>
+          <li>"You already have what it takes. We just add the tools."</li>
+          <li>"Built by women. For women. No apologies."</li>
+          <li>"Your business, automated. Your time, reclaimed."</li>
+          <li>"The future is not waiting. Neither are we."</li>
+          <li>"Less scrolling. More building."</li>
+          <li>"Pull up a chair. We saved you a seat."</li>
+        </ul>
+      </div>
+      <div class="voice-card voice-dont">
+        <div class="voice-card-title">The brand never sounds like</div>
+        <ul>
+          <li>"Girl boss!" / "Boss babe!" / "Slay queen!"</li>
+          <li>"Even women can learn AI!"</li>
+          <li>"Don't be intimidated by technology"</li>
+          <li>"Limited spots! Sign up NOW!"</li>
+          <li>"AI will replace your job unless..."</li>
+          <li>"For the non-technical woman"</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top: 24px; padding: 28px 32px; background: #fff; border: 1px solid rgba(100,50,140,0.06); border-radius: 16px;">
+      <div class="type-label" style="margin-bottom: 12px;">Suggested Taglines</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+        <div style="font-family: 'Playfair Display', serif; font-size: 20px; color: #3D1F56; padding: 16px; background: #F8F4FA; border-radius: 10px; font-style: italic; border: 1px solid rgba(100,50,140,0.04);">
+          "Your stage. Your rules.<br>Your revolution."
+        </div>
+        <div style="font-family: 'Playfair Display', serif; font-size: 20px; color: #3D1F56; padding: 16px; background: #F8F4FA; border-radius: 10px; font-style: italic; border: 1px solid rgba(100,50,140,0.04);">
+          "Where women lead<br>the AI revolution."
+        </div>
+        <div style="font-family: 'Playfair Display', serif; font-size: 20px; color: #3D1F56; padding: 16px; background: #F8F4FA; border-radius: 10px; font-style: italic; border: 1px solid rgba(100,50,140,0.04);">
+          "Intelligence has no<br>glass ceiling."
+        </div>
+        <div style="font-family: 'Playfair Display', serif; font-size: 20px; color: #3D1F56; padding: 16px; background: #F8F4FA; border-radius: 10px; font-style: italic; border: 1px solid rgba(100,50,140,0.04);">
+          "The whole show.<br>Just you and AI."
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 20px; padding: 20px 24px; background: #fff; border: 1px solid rgba(100,50,140,0.06); border-radius: 12px;">
+      <div class="type-label" style="margin-bottom: 10px;">Tone by Context</div>
+      <div style="font-size: 14px; color: #6B5A7A; line-height: 1.8;">
+        On social media, the tone is conversational, encouraging, and a little playful. In educational content, the tone shifts to patient, clear, and empowering. In sales or landing pages, the tone is confident and direct, leading with outcomes. In community spaces, the tone is warm, celebratory, and generous. The common thread across all contexts: respect the reader's intelligence, never talk down, and always make her feel like she belongs here.
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 Logo Direction -->
+  <div class="section">
+    <div class="section-num">06</div>
+    <div class="section-title">Logo Direction</div>
+    <div class="section-desc">The wordmark leads with elegance and personality. "Show" is set in italic to create movement and distinction, a visual nod to performance, confidence, and stage presence. The mark works across all backgrounds and sizes.</div>
+
+    <div class="logo-grid">
+      <div class="logo-card">
+        <div class="logo-preview" style="background: linear-gradient(135deg, #1E0E30, #3D1F56);">
+          <span style="color: #F3EDF7; font-weight: 400;">One Woman <span style="color: #D4B0E0; font-style: italic; font-weight: 500;">Show</span></span>
+        </div>
+        <div class="logo-card-info">
+          <div class="logo-card-name">Primary / Dark Background</div>
+          <div class="logo-card-desc">Hero sections, event materials, premium placements</div>
+        </div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-preview" style="background: #F3EDF7;">
+          <span style="color: #3D1F56; font-weight: 400;">One Woman <span style="color: #7B4FA0; font-style: italic; font-weight: 500;">Show</span></span>
+        </div>
+        <div class="logo-card-info">
+          <div class="logo-card-name">Primary / Light Background</div>
+          <div class="logo-card-desc">Website, documents, emails, social posts</div>
+        </div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-preview" style="background: linear-gradient(135deg, #5A3478, #7B4FA0);">
+          <span style="color: #ffffff; font-weight: 400;">One Woman <span style="color: #E8CDE0; font-style: italic; font-weight: 500;">Show</span></span>
+        </div>
+        <div class="logo-card-info">
+          <div class="logo-card-name">Mono / Purple Background</div>
+          <div class="logo-card-desc">Branded environments, merch, social avatars</div>
+        </div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-preview" style="background: #ffffff; border-bottom: 1px solid rgba(100,50,140,0.06);">
+          <span style="color: #D4B0E0; font-weight: 400;">One Woman <span style="color: #E8CDE0; font-style: italic; font-weight: 500;">Show</span></span>
+        </div>
+        <div class="logo-card-info">
+          <div class="logo-card-name">Watermark / Subtle</div>
+          <div class="logo-card-desc">Document backgrounds, presentations, certificates</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 24px; padding: 20px 24px; background: #fff; border: 1px solid rgba(100,50,140,0.06); border-radius: 12px;">
+      <div class="type-label" style="margin-bottom: 10px;">Icon / Favicon</div>
+      <div style="font-size: 14px; color: #6B5A7A; line-height: 1.8;">
+        For small applications (favicon, app icon, social avatar), use a condensed mark: the letters "OWS" with the "W" in Amethyst, or a single stylised spotlight/stage light icon in the brand purple. The icon should feel recognisable at 16px and elegant at 512px. Keep it simple. One shape, one colour, instant recognition.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 07 Applications (Dark Section) -->
+<div class="dark-section">
+  <div class="container">
+    <div class="section-num">07</div>
+    <div class="section-title">Applications</div>
+    <div class="section-desc">How the brand comes to life across every touchpoint. Every application carries the same energy: warm, confident, and unmistakably One Woman Show.</div>
+
+    <div class="mockup-grid">
+      <div class="mockup-card">
+        <div class="mockup-preview" style="background: linear-gradient(135deg, #1E0E30, #3D1F56);">
+          <div class="biz-card biz-card-dark">
+            <div class="brand">One Woman <span class="accent">Show</span></div>
+            <div class="details">
+              Roni<br>
+              Founder<br><br>
+              roni@onewomanshow.ai<br>
+              onewomanshow.ai
+            </div>
+          </div>
+        </div>
+        <div class="mockup-card-info">
+          <div class="mockup-card-name">Business Card (Dark)</div>
+          <div class="mockup-card-desc">Heavyweight stock, lilac foil on plum</div>
+        </div>
+      </div>
+      <div class="mockup-card">
+        <div class="mockup-preview" style="background: #2A1240;">
+          <div class="biz-card biz-card-light">
+            <div class="brand">One Woman <span class="accent">Show</span></div>
+            <div class="details">
+              Roni<br>
+              Founder<br><br>
+              roni@onewomanshow.ai<br>
+              onewomanshow.ai
+            </div>
+          </div>
+        </div>
+        <div class="mockup-card-info">
+          <div class="mockup-card-name">Business Card (Light)</div>
+          <div class="mockup-card-desc">Soft-touch matte, embossed wordmark</div>
+        </div>
+      </div>
+      <div class="mockup-card">
+        <div class="mockup-preview" style="background: #1A0D2B; padding: 20px;">
+          <div style="width: 100%; max-width: 280px;">
+            <div style="background: #3D1F56; border-radius: 8px; padding: 20px; border: 1px solid rgba(200,162,212,0.1);">
+              <div style="font-family: 'Playfair Display', serif; font-size: 15px; color: #F3EDF7; letter-spacing: 1px; margin-bottom: 16px;">One Woman <span style="color: #D4B0E0; font-style: italic;">Show</span></div>
+              <div style="font-size: 11px; color: rgba(220,200,235,0.6); line-height: 1.6; margin-bottom: 12px;">Your weekly AI toolkit is ready. Three new tools, one real project.</div>
+              <div style="background: #7B4FA0; color: #fff; text-align: center; padding: 8px; border-radius: 6px; font-size: 12px; font-weight: 500;">Open Your Toolkit</div>
+            </div>
+            <div style="text-align: center; margin-top: 8px; font-size: 9px; color: rgba(220,200,235,0.3);">onewomanshow.ai</div>
+          </div>
+        </div>
+        <div class="mockup-card-info">
+          <div class="mockup-card-name">Email Template</div>
+          <div class="mockup-card-desc">Newsletters, course updates, community digests</div>
+        </div>
+      </div>
+      <div class="mockup-card">
+        <div class="mockup-preview" style="background: #150A22; padding: 20px;">
+          <div style="width: 100%; max-width: 280px;">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+              <div style="width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #5A3478, #7B4FA0); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 12px; color: #fff; font-style: italic;">O</div>
+              <div style="font-size: 12px; font-weight: 600; color: #F3EDF7;">One Woman Show</div>
+              <div style="font-size: 10px; color: rgba(220,200,235,0.4); margin-left: auto;">3h</div>
+            </div>
+            <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(200,162,212,0.1);">
+              <div style="height: 100px; background: linear-gradient(135deg, #3D1F56, #5A3478);"></div>
+              <div style="padding: 12px; background: rgba(61,31,86,0.6);">
+                <div style="font-size: 11px; color: #F3EDF7; font-weight: 500;">She automated her entire client reporting.</div>
+                <div style="font-size: 10px; color: rgba(220,200,235,0.4); margin-top: 4px;">25 hours saved per month. Here is how she did it.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mockup-card-info">
+          <div class="mockup-card-name">Social Media</div>
+          <div class="mockup-card-desc">Instagram, LinkedIn, community posts</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 08 Photography & Imagery -->
+  <div class="section">
+    <div class="section-num">08</div>
+    <div class="section-title">Photography and Imagery</div>
+    <div class="section-desc">The visual language should feel aspirational, real, and warm. Show women in action: building, leading, collaborating. Never staged, never stock-photo generic.</div>
+
+    <div class="voice-grid">
+      <div class="voice-card voice-do">
+        <div class="voice-card-title">Use</div>
+        <ul>
+          <li>Real women working at desks, on laptops, in meetings</li>
+          <li>Candid, natural-light photography</li>
+          <li>Diverse representation across age, ethnicity, and style</li>
+          <li>Soft purple and warm tones in post-production</li>
+          <li>Clean, minimal workspace environments</li>
+          <li>Abstract gradient art in brand colours for backgrounds</li>
+        </ul>
+      </div>
+      <div class="voice-card voice-dont">
+        <div class="voice-card-title">Avoid</div>
+        <ul>
+          <li>Stock photos of women "being amazed" by a laptop</li>
+          <li>Pink-washed "women's product" aesthetics</li>
+          <li>Robot imagery, sci-fi visuals, or matrix-style code</li>
+          <li>All-male team photos or panels</li>
+          <li>Overly filtered or heavily retouched portraits</li>
+          <li>Clip art, cartoons, or childish illustrations</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 09 Target Audience -->
+  <div class="section">
+    <div class="section-num">09</div>
+    <div class="section-title">Who This Is For</div>
+    <div class="section-desc">One Woman Show serves women across a spectrum of experience, but shares a common thread: they are ambitious, curious, and ready to take action with AI.</div>
+
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-card-num">A</div>
+        <div class="value-card-title">The Business Owner</div>
+        <div class="value-card-desc">She runs a business and knows AI could help, but feels overwhelmed by the noise. She wants clear, practical guidance from someone who gets what running a business actually looks like.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-card-num">B</div>
+        <div class="value-card-title">The Career Switcher</div>
+        <div class="value-card-desc">She is curious about AI, possibly looking to pivot her career or add AI skills to her resume. She does not want a bootcamp full of jargon. She wants a community where she can learn at her own pace.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-card-num">C</div>
+        <div class="value-card-title">The Builder</div>
+        <div class="value-card-desc">She already has some technical comfort and wants to go deeper. She is looking for advanced workshops, accountability, and a network of women who are actually building, not just talking about it.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-card-num">D</div>
+        <div class="value-card-title">The Connector</div>
+        <div class="value-card-desc">She might not be building AI herself, but she wants to be in the room. She is a leader, a decision-maker, or an influencer who wants to understand AI well enough to shape it within her industry.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10 Summary -->
+  <div class="section">
+    <div class="section-num">10</div>
+    <div class="section-title">Brand Summary</div>
+    <div class="section-desc">Everything at a glance.</div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+      <div style="padding: 24px; background: #fff; border: 1px solid rgba(100,50,140,0.06); border-radius: 16px;">
+        <div class="type-label" style="margin-bottom: 8px;">Brand Name</div>
+        <div style="font-family: 'Playfair Display', serif; font-size: 24px; color: #3D1F56;">One Woman <span style="font-style: italic; color: #7B4FA0;">Show</span></div>
+      </div>
+      <div style="padding: 24px; background: #fff; border: 1px solid rgba(100,50,140,0.06); border-radius: 16px;">
+        <div class="type-label" style="margin-bottom: 8px;">Tagline</div>
+        <div style="font-family: 'Playfair Display', serif; font-size: 20px; color: #3D1F56; font-style: italic;">Your stage. Your rules. Your revolution.</div>
+      </div>
+      <div style="padding: 24px; background: #fff; border: 1px solid rgba(100,50,140,0.06); border-radius: 16px;">
+        <div class="type-label" style="margin-bottom: 8px;">Primary Colours</div>
+        <div style="display: flex; gap: 8px; margin-top: 4px;">
+          <div style="width: 32px; height: 32px; border-radius: 8px; background: #3D1F56;"></div>
+          <div style="width: 32px; height: 32px; border-radius: 8px; background: #7B4FA0;"></div>
+          <div style="width: 32px; height: 32px; border-radius: 8px; background: #D4B0E0;"></div>
+          <div style="width: 32px; height: 32px; border-radius: 8px; background: #C88CB4;"></div>
+          <div style="width: 32px; height: 32px; border-radius: 8px; background: #F3EDF7; border: 1px solid rgba(100,50,140,0.08);"></div>
+        </div>
+      </div>
+      <div style="padding: 24px; background: #fff; border: 1px solid rgba(100,50,140,0.06); border-radius: 16px;">
+        <div class="type-label" style="margin-bottom: 8px;">Typography</div>
+        <div style="font-family: 'Playfair Display', serif; font-size: 16px; color: #3D1F56;">Playfair Display</div>
+        <div style="font-family: 'DM Sans', sans-serif; font-size: 14px; color: #6B5A7A;">DM Sans</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9A8AAD;">JetBrains Mono</div>
+      </div>
+      <div style="padding: 24px; background: #fff; border: 1px solid rgba(100,50,140,0.06); border-radius: 16px;">
+        <div class="type-label" style="margin-bottom: 8px;">Positioning</div>
+        <div style="font-size: 14px; color: #6B5A7A; line-height: 1.6;">The home for women in AI. Learn, build, connect, and lead the next wave of technology on your own terms.</div>
+      </div>
+      <div style="padding: 24px; background: #fff; border: 1px solid rgba(100,50,140,0.06); border-radius: 16px;">
+        <div class="type-label" style="margin-bottom: 8px;">Personality</div>
+        <div style="font-size: 14px; color: #6B5A7A; line-height: 1.6;">Warm, empowering, direct, ambitious, inclusive, never condescending, never cutesy.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="brand-footer">
+  <div class="footer-prepared">Prepared By</div>
+  <div class="footer-by">
+    Daniel Kiing, AI Business Architect<br>
+    <a href="mailto:daniel.kiing@foreshiloh.com">ForeShiloh</a>  /  April 2026
+  </div>
+</div>
+
+</body>
+</html>
