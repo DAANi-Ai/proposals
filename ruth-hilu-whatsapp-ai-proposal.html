@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ForeShiloh - WhatsApp AI Assistant Proposal - Ruth Hilu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Julius+Sans+One&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark:    #060608;
+            --card:    #0e0e14;
+            --card2:   #131320;
+            --border:  #1e1e2e;
+            --border2: #2a2a3a;
+            --gold:    #D4A843;
+            --gold2:   #c49535;
+            --gold-bg: rgba(212,168,67,0.08);
+            --gold-border: rgba(212,168,67,0.25);
+            --text:    #e8e8f0;
+            --muted:   #888899;
+            --white:   #ffffff;
+            --check:   #4ade80;
+            --dash:    #444455;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0 24px 60px;
+        }
+
+        /* ============ HEADER ============ */
+        .header {
+            text-align: center;
+            padding: 52px 0 40px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 28px;
+            position: relative;
+        }
+
+        .header-logo-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .logo-wordmark {
+            font-family: 'Julius Sans One', sans-serif;
+            font-size: 26px;
+            letter-spacing: 8px;
+        }
+        .logo-wordmark .fore  { color: #F8F7F4; }
+        .logo-wordmark .shiloh { color: #D4A843; }
+
+        .division-badge {
+            display: inline-block;
+            background: var(--gold-bg);
+            border: 1px solid var(--gold-border);
+            color: var(--gold);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+
+        .doc-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 10px;
+            line-height: 1.25;
+        }
+
+        .doc-prepared {
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        .doc-date {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* ============ NOTICE BANNER ============ */
+        .notice-banner {
+            background: var(--gold-bg);
+            border: 1px solid var(--gold-border);
+            border-left: 4px solid var(--gold);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 28px;
+            font-size: 14px;
+            color: var(--text);
+            line-height: 1.65;
+        }
+
+        .notice-banner .notice-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 6px;
+        }
+
+        /* ============ SECTION CARDS ============ */
+        .section {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 36px 36px 32px;
+            margin-bottom: 22px;
+        }
+
+        .section-eyebrow {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--white);
+            margin: 22px 0 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ============ HIGHLIGHT BOX ============ */
+        .highlight-box {
+            background: var(--card2);
+            border: 1px solid var(--border2);
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin: 18px 0;
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .highlight-box.gold-accent {
+            border-left: 3px solid var(--gold);
+            background: var(--gold-bg);
+        }
+
+        /* ============ PROBLEM STAT ROW ============ */
+        .stat-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 22px 0;
+        }
+
+        .stat-card {
+            background: var(--card2);
+            border: 1px solid var(--border2);
+            border-radius: 10px;
+            padding: 20px 18px;
+            text-align: center;
+        }
+
+        .stat-card .stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .stat-card .stat-label {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.4;
+        }
+
+        /* ============ FEATURE LIST ============ */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-num {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 28px;
+            height: 28px;
+            background: var(--gold-bg);
+            border: 1px solid var(--gold-border);
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--gold);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .feature-content .feature-title {
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 3px;
+        }
+
+        .feature-content .feature-desc {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.55;
+        }
+
+        /* ============ PRICING TABLE ============ */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+            margin: 22px 0;
+        }
+
+        .pricing-card {
+            background: var(--card2);
+            border: 1px solid var(--border2);
+            border-radius: 12px;
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card.recommended {
+            border-color: var(--gold);
+            background: linear-gradient(160deg, rgba(212,168,67,0.07) 0%, var(--card2) 60%);
+            position: relative;
+        }
+
+        .rec-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: #060608;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .plan-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .plan-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 14px;
+        }
+
+        .plan-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 4px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .plan-price-note {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 18px;
+            line-height: 1.5;
+        }
+
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 18px;
+            flex: 1;
+        }
+
+        .plan-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 7px 0;
+            font-size: 13px;
+            color: var(--text);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            line-height: 1.4;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: var(--check);
+            font-size: 14px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .dash-icon {
+            color: var(--dash);
+            font-size: 14px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .plan-footer {
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--muted);
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        /* ============ COMPARISON TABLE ============ */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 22px 0;
+            font-size: 13.5px;
+        }
+
+        .comparison-table th {
+            padding: 12px 14px;
+            text-align: left;
+            background: rgba(212,168,67,0.1);
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--border2);
+        }
+
+        .comparison-table th:first-child {
+            border-radius: 8px 0 0 0;
+        }
+        .comparison-table th:last-child {
+            border-radius: 0 8px 0 0;
+        }
+
+        .comparison-table td {
+            padding: 11px 14px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+            vertical-align: middle;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table td:first-child {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .comparison-table .yes { color: var(--check); font-size: 16px; }
+        .comparison-table .no  { color: var(--dash); font-size: 16px; }
+        .comparison-table .opt { color: var(--gold); font-size: 13px; }
+
+        .comparison-table .col-rec {
+            background: rgba(212,168,67,0.04);
+        }
+
+        /* ============ TIMELINE ============ */
+        .timeline {
+            list-style: none;
+            padding: 0;
+            margin: 18px 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 16px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+        }
+
+        .timeline li {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            padding: 0 0 24px 0;
+            position: relative;
+        }
+
+        .timeline li:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-dot {
+            min-width: 34px;
+            height: 34px;
+            background: var(--gold-bg);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--gold);
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-content .timeline-week {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 3px;
+        }
+
+        .timeline-content .timeline-title {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .timeline-content .timeline-desc {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.55;
+        }
+
+        /* ============ PHASE 2 VISION GRID ============ */
+        .vision-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 18px 0;
+        }
+
+        .vision-card {
+            background: var(--card2);
+            border: 1px solid var(--border2);
+            border-radius: 10px;
+            padding: 16px 18px;
+        }
+
+        .vision-card .vision-title {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .vision-card .vision-desc {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        /* ============ NEXT STEPS ============ */
+        .steps-list {
+            list-style: none;
+            padding: 0;
+            margin: 14px 0;
+        }
+
+        .steps-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+        }
+
+        .steps-list li:last-child {
+            border-bottom: none;
+        }
+
+        .step-num-circle {
+            min-width: 32px;
+            height: 32px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #060608;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .step-text .step-heading {
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 3px;
+        }
+
+        .step-text .step-detail {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            text-align: center;
+            padding: 36px 0 0;
+            border-top: 1px solid var(--border);
+            margin-top: 32px;
+        }
+
+        .footer-logo-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .footer-wordmark {
+            font-family: 'Julius Sans One', sans-serif;
+            font-size: 20px;
+            letter-spacing: 7px;
+        }
+        .footer-wordmark .fore  { color: #F8F7F4; }
+        .footer-wordmark .shiloh { color: #D4A843; }
+
+        .footer-strapline {
+            font-size: 13px;
+            color: var(--gold);
+            font-style: italic;
+            margin-bottom: 12px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.9;
+        }
+
+        /* ============ PRINT ============ */
+        @media print {
+            body { background: #fff; color: #1a1a1a; font-size: 11pt; }
+            .container { max-width: 100%; padding: 0 16px 40px; }
+            .header { border-color: #ccc; padding: 20px 0 24px; }
+            .section, .notice-banner, .pricing-card, .highlight-box, .vision-card {
+                background: #fff;
+                border-color: #ccc;
+                page-break-inside: avoid;
+            }
+            .section h2 { color: #1a1a1a; border-color: #ddd; }
+            .doc-title { color: #1a1a1a; }
+            .logo-wordmark .fore { color: #1a1a1a; }
+            .logo-wordmark .shiloh { color: #8B6914; }
+            .section-eyebrow, .plan-label, .timeline-content .timeline-week { color: #8B6914; }
+            .stat-card .stat-num, .plan-price, .plan-name { color: #8B6914; }
+            .comparison-table th { background: #f5f0e0; color: #8B6914; }
+            .comparison-table td { border-color: #ddd; color: #1a1a1a; }
+            .footer { border-color: #ccc; }
+            .footer-strapline { color: #8B6914; }
+            .footer-text { color: #666; }
+            .timeline::before { background: #8B6914; }
+            .timeline-dot { border-color: #8B6914; color: #8B6914; background: #fffbea; }
+            .check-icon { color: #2a7a4a; }
+            .step-num-circle { background: #8B6914; }
+            .notice-banner { background: #fffbea; border-color: #c8a030; color: #1a1a1a; }
+            .rec-badge { background: #8B6914; }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 16px 40px; }
+            .doc-title { font-size: 26px; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .stat-row { grid-template-columns: 1fr; }
+            .vision-grid { grid-template-columns: 1fr; }
+            .section { padding: 22px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ============ HEADER ============ -->
+    <div class="header">
+        <div class="header-logo-row">
+            <img src="https://foreshiloh.com/images/Logo-3.png" style="height:40px" alt="ForeShiloh Logo">
+            <div class="logo-wordmark"><span class="fore">FORE</span><span class="shiloh">SHILOH</span></div>
+        </div>
+        <div class="division-badge">Architecture Division</div>
+        <h1 class="doc-title">WhatsApp AI Assistant Proposal</h1>
+        <p class="doc-title" style="font-size:22px; font-weight:400; font-style:italic; margin-bottom:16px; color: var(--gold);">for Ruth Hilu</p>
+        <p class="doc-prepared">Prepared by Haya Sayegh and Daniel Kiing, AI Business Architect</p>
+        <p class="doc-date">May 2026</p>
+    </div>
+
+    <!-- ============ NOTICE BANNER ============ -->
+    <div class="notice-banner">
+        <div class="notice-label">Important Note</div>
+        This proposal provides estimated pricing based on initial consultation. All figures shown are estimates only. Final pricing will be confirmed after a detailed discovery call with Ruth to fully understand her business setup, message volume, and specific requirements.
+    </div>
+
+    <!-- ============ SECTION 1: SITUATION ============ -->
+    <div class="section">
+        <div class="section-eyebrow">Section 1</div>
+        <h2>Understanding Your Situation</h2>
+
+        <p style="margin-bottom:18px; color:var(--text);">
+            Ruth has built something remarkable: a thriving coaching practice spanning six countries, built entirely on trust and word of mouth. That is not an easy thing to achieve. But the very success that makes this business special is now creating a serious operational problem.
+        </p>
+
+        <div class="stat-row">
+            <div class="stat-card">
+                <div class="stat-num">3,000+</div>
+                <div class="stat-label">Active clients across Mexico, US, Panama, Israel, Brazil, and the UK</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">10-20</div>
+                <div class="stat-label">Hours every week spent manually answering WhatsApp messages</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">6+</div>
+                <div class="stat-label">Countries, time zones, languages, and pricing structures to manage</div>
+            </div>
+        </div>
+
+        <div class="highlight-box gold-accent" style="margin-top:20px;">
+            <div style="font-weight:600; color:var(--white); margin-bottom:8px;">The real cost of manual messaging</div>
+            At 15 hours a week, Ruth spends roughly two full working days every week just answering messages. That is time she cannot spend on coaching, creating content, or taking on new clients. The human assistant helps, but requires constant guidance -- which means the bottleneck is Ruth herself, not the volume of messages.
+        </div>
+
+        <p style="color:var(--text); margin-top:18px; line-height:1.75;">
+            The current setup has no unified system. Scheduling lives in Confirmafy (which syncs with Google Calendar -- that is a good foundation). Payments are tracked manually. Client details are scattered across chats. There is no quick way for Ruth to see which clients are current, which are waiting, or which messages still need replies.
+        </p>
+
+        <p style="color:var(--text); margin-top:14px; line-height:1.75;">
+            The opportunity here is significant. An AI assistant trained on how Ruth writes and thinks -- one that can classify clients, answer common questions, handle scheduling, track payments, and give Ruth a clear daily summary -- would give her back 10 or more hours a week. That is time she can put toward the work that only she can do.
+        </p>
+    </div>
+
+    <!-- ============ SECTION 2: WHAT WE BUILD ============ -->
+    <div class="section">
+        <div class="section-eyebrow">Section 2</div>
+        <h2>What We Will Build - Phase 1</h2>
+
+        <p style="margin-bottom:20px; color:var(--text);">
+            Phase 1 is a complete WhatsApp AI assistant that handles the operational side of Ruth's business. Every feature below is purpose-built for a solo coaching practice with a high-volume, multi-country client base.
+        </p>
+
+        <ul class="feature-list">
+            <li>
+                <div class="feature-num">1</div>
+                <div class="feature-content">
+                    <div class="feature-title">Bilingual AI Assistant - English and Spanish</div>
+                    <div class="feature-desc">The assistant detects the language each client writes in and responds in kind. No client ever needs to switch language or feel like they are talking to a foreign system. Fully fluent in both languages, with natural phrasing throughout.</div>
+                </div>
+            </li>
+            <li>
+                <div class="feature-num">2</div>
+                <div class="feature-content">
+                    <div class="feature-title">Tone-Matched Responses</div>
+                    <div class="feature-desc">The assistant is trained on Ruth's actual messages, so it writes the way Ruth writes - warm, direct, professional. Clients will not notice the difference. Before going live, Ruth reviews and approves response samples until they feel right.</div>
+                </div>
+            </li>
+            <li>
+                <div class="feature-num">3</div>
+                <div class="feature-content">
+                    <div class="feature-title">Smart Message Filtering</div>
+                    <div class="feature-desc">Personal contacts, family, and friends are excluded completely. The assistant only handles business-related conversations. Ruth defines the rules, and anything unclear is flagged for her attention rather than responded to automatically.</div>
+                </div>
+            </li>
+            <li>
+                <div class="feature-num">4</div>
+                <div class="feature-content">
+                    <div class="feature-title">Client Classification System</div>
+                    <div class="feature-desc">Every client is tagged automatically: country, pricing tier, session type, payment status, and current programme stage. Ruth can see at a glance exactly who is who, without digging through chat history.</div>
+                </div>
+            </li>
+            <li>
+                <div class="feature-num">5</div>
+                <div class="feature-content">
+                    <div class="feature-title">Scheduling Integration via Google Calendar</div>
+                    <div class="feature-desc">The assistant bridges with Confirmafy through Google Calendar. When a client asks to book, reschedule, or confirm a session, the assistant checks availability and handles it. Ruth's calendar stays accurate without her involvement.</div>
+                </div>
+            </li>
+            <li>
+                <div class="feature-num">6</div>
+                <div class="feature-content">
+                    <div class="feature-title">Payment Tracking and Automated Reminders</div>
+                    <div class="feature-desc">Outstanding payments are tracked per client. The assistant sends polite, personalised reminders at the right intervals, in the right language, in Ruth's voice. No more chasing manually.</div>
+                </div>
+            </li>
+            <li>
+                <div class="feature-num">7</div>
+                <div class="feature-content">
+                    <div class="feature-title">Waitlist Management</div>
+                    <div class="feature-desc">New enquiries that come in when Ruth is at capacity go onto a managed waitlist. The system keeps interested clients warm, sends updates when spots open, and converts enquiries into booked sessions automatically.</div>
+                </div>
+            </li>
+            <li>
+                <div class="feature-num">8</div>
+                <div class="feature-content">
+                    <div class="feature-title">Daily Summary Reports for Ruth</div>
+                    <div class="feature-desc">Each morning, Ruth receives a concise summary of what happened the day before: messages handled, bookings made, payments received, anything flagged for her review. One clear view, no digging required.</div>
+                </div>
+            </li>
+            <li>
+                <div class="feature-num">9</div>
+                <div class="feature-content">
+                    <div class="feature-title">Admin Dashboard</div>
+                    <div class="feature-desc">A simple, private web dashboard where Ruth (or a trusted assistant) can see everything in one place: active clients, pending payments, upcoming sessions, flagged messages, and system status. Available on any device.</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ============ SECTION 3: PRICING ============ -->
+    <div class="section">
+        <div class="section-eyebrow">Section 3</div>
+        <h2>Pricing Options</h2>
+
+        <p style="margin-bottom:22px; color:var(--text);">
+            Three options are available depending on how comprehensive Ruth wants the first build to be. All prices are estimates and will be confirmed after the discovery call. A 50% deposit secures the project start date, with the remaining 50% due on completion.
+        </p>
+
+        <div class="pricing-grid">
+
+            <!-- OPTION A -->
+            <div class="pricing-card">
+                <div class="plan-label">Option A</div>
+                <div class="plan-name">Essential Build</div>
+                <div class="plan-price">~$3,000</div>
+                <div class="plan-price-note">One-time payment. No monthly fee. Updates and fixes charged separately as needed.</div>
+                <ul class="plan-features">
+                    <li><span class="check-icon">&#10003;</span> Bilingual AI assistant (English + Spanish)</li>
+                    <li><span class="check-icon">&#10003;</span> Tone-matched responses</li>
+                    <li><span class="check-icon">&#10003;</span> Smart message filtering</li>
+                    <li><span class="check-icon">&#10003;</span> Client classification</li>
+                    <li><span class="check-icon">&#10003;</span> Basic scheduling integration</li>
+                    <li><span class="dash-icon">-</span> Payment tracking and reminders</li>
+                    <li><span class="dash-icon">-</span> Waitlist management</li>
+                    <li><span class="dash-icon">-</span> Daily summary reports</li>
+                    <li><span class="dash-icon">-</span> Admin dashboard</li>
+                </ul>
+                <div class="plan-footer">Best for: testing the system with lower upfront commitment before deciding on the full build.</div>
+            </div>
+
+            <!-- OPTION B -->
+            <div class="pricing-card recommended">
+                <div class="rec-badge">Recommended</div>
+                <div class="plan-label">Option B</div>
+                <div class="plan-name">Complete Build</div>
+                <div class="plan-price">~$5,000</div>
+                <div class="plan-price-note">One-time payment. Optional maintenance at $250/month. Includes 2 weeks of post-launch support.</div>
+                <ul class="plan-features">
+                    <li><span class="check-icon">&#10003;</span> Everything in Option A</li>
+                    <li><span class="check-icon">&#10003;</span> Payment tracking and reminders</li>
+                    <li><span class="check-icon">&#10003;</span> Waitlist management</li>
+                    <li><span class="check-icon">&#10003;</span> Daily summary reports</li>
+                    <li><span class="check-icon">&#10003;</span> Admin dashboard</li>
+                    <li><span class="check-icon">&#10003;</span> 2 weeks post-launch support</li>
+                    <li><span class="dash-icon">-</span> Ongoing optimisation</li>
+                    <li><span class="dash-icon">-</span> Monthly performance reports</li>
+                    <li><span class="dash-icon">-</span> Phase 2 pathway</li>
+                </ul>
+                <div class="plan-footer">Best for: the complete solution without an ongoing retainer. The most popular choice for solo practitioners.</div>
+            </div>
+
+            <!-- OPTION C -->
+            <div class="pricing-card">
+                <div class="plan-label">Option C</div>
+                <div class="plan-name">Full Partnership</div>
+                <div class="plan-price">~$6,000</div>
+                <div class="plan-price-note">Setup fee plus $350/month ongoing. Priority support and continuous improvement included.</div>
+                <ul class="plan-features">
+                    <li><span class="check-icon">&#10003;</span> Everything in Option B</li>
+                    <li><span class="check-icon">&#10003;</span> Ongoing optimisation and improvements</li>
+                    <li><span class="check-icon">&#10003;</span> Priority support response</li>
+                    <li><span class="check-icon">&#10003;</span> Monthly performance reports</li>
+                    <li><span class="check-icon">&#10003;</span> Phase 2 pathway included</li>
+                    <li><span class="opt">+</span> AI pre-session automation (Phase 2)</li>
+                    <li><span class="opt">+</span> Client self-service portal (Phase 2)</li>
+                    <li><span class="opt">+</span> Coaching platform build (Phase 2)</li>
+                </ul>
+                <div class="plan-footer">Best for: long-term growth. Ideal if Ruth plans to scale significantly or wants a continued technology partner.</div>
+            </div>
+
+        </div>
+
+        <h3>Feature Comparison at a Glance</h3>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th style="min-width:220px">Feature</th>
+                    <th>Option A<br>Essential</th>
+                    <th class="col-rec">Option B<br>Complete</th>
+                    <th>Option C<br>Partnership</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bilingual AI assistant (EN + ES)</td>
+                    <td class="yes">&#10003;</td>
+                    <td class="yes col-rec">&#10003;</td>
+                    <td class="yes">&#10003;</td>
+                </tr>
+                <tr>
+                    <td>Tone-matched to Ruth's style</td>
+                    <td class="yes">&#10003;</td>
+                    <td class="yes col-rec">&#10003;</td>
+                    <td class="yes">&#10003;</td>
+                </tr>
+                <tr>
+                    <td>Smart message filtering</td>
+                    <td class="yes">&#10003;</td>
+                    <td class="yes col-rec">&#10003;</td>
+                    <td class="yes">&#10003;</td>
+                </tr>
+                <tr>
+                    <td>Client classification</td>
+                    <td class="yes">&#10003;</td>
+                    <td class="yes col-rec">&#10003;</td>
+                    <td class="yes">&#10003;</td>
+                </tr>
+                <tr>
+                    <td>Scheduling via Google Calendar</td>
+                    <td class="yes">&#10003;</td>
+                    <td class="yes col-rec">&#10003;</td>
+                    <td class="yes">&#10003;</td>
+                </tr>
+                <tr>
+                    <td>Payment tracking and reminders</td>
+                    <td class="no">-</td>
+                    <td class="yes col-rec">&#10003;</td>
+                    <td class="yes">&#10003;</td>
+                </tr>
+                <tr>
+                    <td>Waitlist management</td>
+                    <td class="no">-</td>
+                    <td class="yes col-rec">&#10003;</td>
+                    <td class="yes">&#10003;</td>
+                </tr>
+                <tr>
+                    <td>Daily summary reports</td>
+                    <td class="no">-</td>
+                    <td class="yes col-rec">&#10003;</td>
+                    <td class="yes">&#10003;</td>
+                </tr>
+                <tr>
+                    <td>Admin dashboard</td>
+                    <td class="no">-</td>
+                    <td class="yes col-rec">&#10003;</td>
+                    <td class="yes">&#10003;</td>
+                </tr>
+                <tr>
+                    <td>Post-launch support</td>
+                    <td class="no">-</td>
+                    <td class="yes col-rec">2 weeks</td>
+                    <td class="yes">Ongoing</td>
+                </tr>
+                <tr>
+                    <td>Monthly performance reports</td>
+                    <td class="no">-</td>
+                    <td class="no col-rec">-</td>
+                    <td class="yes">&#10003;</td>
+                </tr>
+                <tr>
+                    <td>Phase 2 pathway</td>
+                    <td class="no">-</td>
+                    <td class="no col-rec">-</td>
+                    <td class="yes">Included</td>
+                </tr>
+                <tr>
+                    <td>Estimated price</td>
+                    <td>~$3,000 one-time</td>
+                    <td class="col-rec" style="color:var(--gold); font-weight:600;">~$5,000 one-time</td>
+                    <td>~$6,000 + $350/mo</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box gold-accent">
+            All prices are estimates based on initial scoping. Final figures confirmed after the discovery call within 48 hours. Payment terms: 50% to begin, 50% on completion.
+        </div>
+    </div>
+
+    <!-- ============ SECTION 4: TIMELINE ============ -->
+    <div class="section">
+        <div class="section-eyebrow">Section 4</div>
+        <h2>How It Works - Project Timeline</h2>
+
+        <p style="margin-bottom:22px; color:var(--text);">
+            From first call to live assistant in five weeks. The timeline is structured so Ruth is never left waiting without knowing what is happening next.
+        </p>
+
+        <ul class="timeline">
+            <li>
+                <div class="timeline-dot">1</div>
+                <div class="timeline-content">
+                    <div class="timeline-week">Week 1</div>
+                    <div class="timeline-title">Discovery Call and Data Collection</div>
+                    <div class="timeline-desc">A 30-60 minute call with Daniel to map Ruth's full business: message types, client categories, pricing tiers, scheduling workflow, payment process, and anything else the assistant needs to know. Ruth provides sample messages (anonymised), her Confirmafy access, and any existing client lists or notes. This is where the final quote is confirmed.</div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-dot">2</div>
+                <div class="timeline-content">
+                    <div class="timeline-week">Weeks 2 and 3</div>
+                    <div class="timeline-title">Build and Training</div>
+                    <div class="timeline-desc">The assistant is built and trained on Ruth's actual communication style. Integrations are connected (WhatsApp Business API, Google Calendar, Confirmafy bridge). Client classification rules are configured. The admin dashboard is set up with Ruth's client data imported.</div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-dot">3</div>
+                <div class="timeline-content">
+                    <div class="timeline-week">Week 4</div>
+                    <div class="timeline-title">Testing with Real Messages</div>
+                    <div class="timeline-desc">Ruth reviews a set of real message scenarios and checks the assistant's responses. Any tone, phrasing, or classification adjustments are made here. This stage does not end until Ruth is satisfied that the responses sound like her. Nothing goes live without her approval.</div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-dot">4</div>
+                <div class="timeline-content">
+                    <div class="timeline-week">Week 5</div>
+                    <div class="timeline-title">Go Live and Handover</div>
+                    <div class="timeline-desc">The assistant goes live. Ruth receives a short walkthrough of the admin dashboard, the daily summary format, and how to flag messages for personal attention. A written handover guide is provided. For Options B and C, two weeks of post-launch support begins here.</div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-dot">&#8734;</div>
+                <div class="timeline-content">
+                    <div class="timeline-week">Ongoing</div>
+                    <div class="timeline-title">Support as Per Chosen Option</div>
+                    <div class="timeline-desc">Option A: updates and fixes charged as needed. Option B: two weeks included, then standard rate. Option C: continuous optimisation, priority support, and monthly performance reviews included in the monthly fee.</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ============ SECTION 5: PHASE 2 VISION ============ -->
+    <div class="section">
+        <div class="section-eyebrow">Section 5</div>
+        <h2>Phase 2 Vision</h2>
+
+        <p style="margin-bottom:18px; color:var(--text);">
+            Phase 1 solves the operational problem. Phase 2 transforms the business model. Once the AI assistant is live and Ruth has reclaimed her time, the next question is: what could this business look like if the infrastructure were built for scale?
+        </p>
+
+        <p style="margin-bottom:18px; color:var(--muted); font-style:italic; font-size:14px;">
+            Phase 2 will be scoped and priced after Phase 1 is live and delivering results. Nothing below is included in Phase 1 pricing.
+        </p>
+
+        <div class="vision-grid">
+            <div class="vision-card">
+                <div class="vision-title">AI-Powered Pre-Sessions</div>
+                <div class="vision-desc">Before each coaching session, the AI prepares a brief for Ruth: client history, last session notes, goals, and any WhatsApp exchanges since the previous session. Ruth walks into every call fully prepared, automatically.</div>
+            </div>
+            <div class="vision-card">
+                <div class="vision-title">Client Self-Service Portal</div>
+                <div class="vision-desc">A private web portal where clients can view their session history, book their next appointment, access shared resources, and manage their own payment method. Reduces inbound messages further and increases client satisfaction.</div>
+            </div>
+            <div class="vision-card">
+                <div class="vision-title">Full Coaching Platform</div>
+                <div class="vision-desc">A branded app or web platform under Ruth's name. Group programmes, digital resources, intake forms, progress tracking, and payment processing all in one place. The foundation for productising her expertise beyond 1-on-1 coaching.</div>
+            </div>
+            <div class="vision-card">
+                <div class="vision-title">Video and Content Integration</div>
+                <div class="vision-desc">If Ruth creates video content or audio resources, the platform can host and distribute them to clients as part of their programme. This opens the door to passive income products alongside her live coaching practice.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ SECTION 6: NEXT STEPS ============ -->
+    <div class="section">
+        <div class="section-eyebrow">Section 6</div>
+        <h2>Next Steps</h2>
+
+        <p style="margin-bottom:18px; color:var(--text);">
+            The path from here to a live assistant is straightforward. Here is exactly what happens next.
+        </p>
+
+        <ul class="steps-list">
+            <li>
+                <div class="step-num-circle">1</div>
+                <div class="step-text">
+                    <div class="step-heading">Schedule a Discovery Call</div>
+                    <div class="step-detail">A 30-60 minute call between Ruth and Daniel Kiing. We map the full business context, confirm the right option, and agree on a start date. Haya can coordinate this at a time that works across time zones.</div>
+                </div>
+            </li>
+            <li>
+                <div class="step-num-circle">2</div>
+                <div class="step-text">
+                    <div class="step-heading">Ruth Provides Sample Data</div>
+                    <div class="step-detail">A selection of anonymised messages (roughly 20-30 examples), her client list structure, Confirmafy login, and any notes on how she currently classifies clients. No technical knowledge needed - a simple walkthrough call handles everything.</div>
+                </div>
+            </li>
+            <li>
+                <div class="step-num-circle">3</div>
+                <div class="step-text">
+                    <div class="step-heading">Final Quote Delivered Within 48 Hours</div>
+                    <div class="step-detail">After the discovery call, a confirmed project quote is delivered in writing within 48 hours. If the figures differ from the estimates in this proposal, the reason will be explained clearly.</div>
+                </div>
+            </li>
+            <li>
+                <div class="step-num-circle">4</div>
+                <div class="step-text">
+                    <div class="step-heading">50% Deposit to Begin</div>
+                    <div class="step-detail">On agreement, a 50% deposit secures the project start date. The remaining 50% is due on completion and final approval of the assistant - Ruth only pays the balance when she is satisfied with the result.</div>
+                </div>
+            </li>
+        </ul>
+
+        <div class="highlight-box gold-accent" style="margin-top:22px;">
+            <div style="font-weight:600; color:var(--white); margin-bottom:6px;">A note to Haya</div>
+            If Ruth has questions before committing to a discovery call, please send them through. Daniel is available to respond directly or join a three-way call at short notice. The goal of this first step is simply for Ruth to feel confident she is in good hands before anything else happens.
+        </div>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <div class="footer">
+        <div class="footer-logo-row">
+            <img src="https://foreshiloh.com/images/Logo-3.png" style="height:32px" alt="ForeShiloh Logo">
+            <div class="footer-wordmark"><span class="fore">FORE</span><span class="footer-wordmark shiloh">SHILOH</span></div>
+        </div>
+        <div class="footer-strapline">You dream, we build. AI powers them both.</div>
+        <div class="footer-text">
+            ForeShiloh Ltd - Company No. 17098179 - Registered in England and Wales<br>
+            Architecture Division - AI Business Systems<br>
+            Daniel.kiing@foreshiloh.com - foreshiloh.com<br>
+            Prepared with care by ForeShiloh - AI that works for your business<br>
+            <span style="color:var(--border2);">Proposal Version 1.0 - May 2026 - Confidential</span>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
