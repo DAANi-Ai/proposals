@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ForeShiloh | EvenX Technical Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f8f9fa;
+    --card: #f3f4f6;
+    --border: rgba(0,0,0,0.08);
+    --border-hover: rgba(0,0,0,0.15);
+    --gold: #B8922E;
+    --gold-bright: #9A7A1F;
+    --gold-dim: rgba(184,146,46,0.1);
+    --text: #4a4a5a;
+    --text-bright: #1a1a2e;
+    --text-dim: rgba(0,0,0,0.4);
+    --text-muted: rgba(0,0,0,0.55);
+    --green: #16a34a;
+    --green-dim: rgba(22,163,74,0.08);
+    --green-border: rgba(22,163,74,0.2);
+    --blue: #2563eb;
+    --blue-dim: rgba(37,99,235,0.08);
+    --blue-border: rgba(37,99,235,0.2);
+    --red: #dc2626;
+    --red-dim: rgba(220,38,38,0.06);
+    --red-border: rgba(220,38,38,0.15);
+    --amber: #d97706;
+    --amber-dim: rgba(217,119,6,0.08);
+    --amber-border: rgba(217,119,6,0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wordmark {
+    font-family: 'Julius Sans One', sans-serif;
+    letter-spacing: 8px;
+    font-size: 14px;
+  }
+  .wordmark .fore { color: rgba(0,0,0,0.45); }
+  .wordmark .shiloh { color: var(--gold); }
+
+  .font-display { font-family: 'Space Grotesk', sans-serif; }
+
+  .mono-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .gold-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .glass {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .glass:hover { border-color: var(--border-hover); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); filter: blur(4px); }
+    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+  }
+  .reveal { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .reveal-d1 { animation-delay: 0.1s; opacity: 0; }
+  .reveal-d2 { animation-delay: 0.2s; opacity: 0; }
+  .reveal-d3 { animation-delay: 0.3s; opacity: 0; }
+  .reveal-d4 { animation-delay: 0.4s; opacity: 0; }
+  .reveal-d5 { animation-delay: 0.5s; opacity: 0; }
+
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+  .hairline { height: 1px; background: var(--border); }
+  .check { color: var(--gold); margin-right: 10px; font-weight: 700; }
+
+  .status-badge {
+    display: inline-block;
+    border-radius: 100px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    width: fit-content;
+  }
+
+  @media print {
+    body { background: #fff; color: #1a1a1a; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .glass { background: #f8f8f8; border: 1px solid #ddd; break-inside: avoid; }
+    .wordmark .fore { color: #666; }
+    .wordmark .shiloh { color: #8B7226; }
+    section { break-inside: avoid; }
+    :root { --text: #1a1a1a; --text-bright: #000; --text-dim: #888; --text-muted: #666; --gold: #8B7226; --gold-bright: #8B7226; }
+  }
+
+  @media (max-width: 768px) {
+    .tier-grid { grid-template-columns: 1fr !important; }
+    .pain-grid { grid-template-columns: 1fr !important; }
+    .feature-grid { grid-template-columns: 1fr !important; }
+    .about-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav style="padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border);">
+  <div class="wordmark"><span class="fore">FORE</span><span class="shiloh">SHILOH</span></div>
+  <span class="mono-label">Technical Proposal</span>
+</nav>
+
+<!-- HERO -->
+<section style="padding: 80px 0 60px; text-align: center;">
+  <div class="container">
+    <div class="gold-label reveal" style="margin-bottom: 20px;">Prepared for Halm Murungi &middot; EvenX</div>
+
+    <h1 class="font-display reveal reveal-d1" style="font-size: clamp(32px, 5vw, 52px); font-weight: 600; color: var(--text-bright); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 24px;">
+      Strengthen the foundation.<br>Scale with confidence.
+    </h1>
+
+    <p class="reveal reveal-d2" style="font-size: 17px; color: var(--text-muted); max-width: 620px; margin: 0 auto 20px; line-height: 1.7;">
+      You have built an impressive MVP for corporate event management. This proposal outlines three ways to make it investor-ready, pilot-ready, and built to scale.
+    </p>
+
+    <p class="reveal reveal-d3" style="font-size: 13px; color: var(--text-dim);">
+      11 May 2026 &middot; Prepared by Daniel Kiing, AI Business Architect
+    </p>
+  </div>
+</section>
+
+<div class="hairline"></div>
+
+<!-- WHAT I SAW -->
+<section style="padding: 60px 0;">
+  <div class="container">
+    <div class="mono-label reveal" style="margin-bottom: 12px; text-align: center;">From our conversation</div>
+    <h2 class="font-display reveal reveal-d1" style="font-size: clamp(24px, 4vw, 36px); font-weight: 600; color: var(--text-bright); letter-spacing: -0.02em; margin-bottom: 16px; text-align: center;">
+      What I Found
+    </h2>
+    <p class="reveal reveal-d2" style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 0 auto 48px; font-size: 15px;">
+      Your platform already handles event creation, vendor browsing, budget allocation, task management, and team collaboration. That is a strong foundation. Here is what needs attention.
+    </p>
+
+    <div class="pain-grid reveal reveal-d3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+
+      <div class="glass" style="padding: 28px;">
+        <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); margin-bottom: 12px;">Critical</div>
+        <div class="font-display" style="font-size: 16px; font-weight: 600; color: var(--text-bright); margin-bottom: 8px;">
+          No Admin Dashboard
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.7;">
+          You cannot see who has signed up, how many users you have, or what they are doing. This is essential before any pilot launch or investor demo.
+        </p>
+        <div style="margin-top: 12px; font-size: 12px; color: var(--green);">
+          Fix: Build an admin panel with user analytics, event metrics, and platform health monitoring.
+        </div>
+      </div>
+
+      <div class="glass" style="padding: 28px;">
+        <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); margin-bottom: 12px;">Critical</div>
+        <div class="font-display" style="font-size: 16px; font-weight: 600; color: var(--text-bright); margin-bottom: 8px;">
+          Backend Fragility
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.7;">
+          Vibe-coded applications often lack proper error handling, input validation, and database optimisation. Without an audit, scaling risks data loss and outages during your pilot.
+        </p>
+        <div style="margin-top: 12px; font-size: 12px; color: var(--green);">
+          Fix: Full code audit, Supabase schema review, security hardening, and bug fixes.
+        </div>
+      </div>
+
+      <div class="glass" style="padding: 28px;">
+        <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber); margin-bottom: 12px;">Important</div>
+        <div class="font-display" style="font-size: 16px; font-weight: 600; color: var(--text-bright); margin-bottom: 8px;">
+          AI Features Broken
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.7;">
+          The "Plan with Eva" AI assistant and the automatic budget allocation have stopped working. These are the features that differentiate EvenX from generic event tools.
+        </p>
+        <div style="margin-top: 12px; font-size: 12px; color: var(--green);">
+          Fix: Rebuild the AI pipeline with proper API integration and fallback handling.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Secondary issues -->
+    <div class="reveal reveal-d4" style="margin-top: 24px;">
+      <div class="glass" style="padding: 28px;">
+        <div class="font-display" style="font-size: 14px; font-weight: 600; color: var(--text-bright); margin-bottom: 16px;">Additional Issues Spotted</div>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; font-size: 13px; color: var(--text-muted);">
+          <div><span style="color: var(--amber); margin-right: 8px;">&#9679;</span> Guest stats displaying "NaN%" (calculation bug)</div>
+          <div><span style="color: var(--amber); margin-right: 8px;">&#9679;</span> Currency showing "$" instead of "&pound;" for UK market</div>
+          <div><span style="color: var(--amber); margin-right: 8px;">&#9679;</span> Map preview not rendering on location step</div>
+          <div><span style="color: var(--amber); margin-right: 8px;">&#9679;</span> Vendor onboarding pipeline not yet automated</div>
+          <div><span style="color: var(--amber); margin-right: 8px;">&#9679;</span> No payment integration for Core/Pro plan upgrades</div>
+          <div><span style="color: var(--amber); margin-right: 8px;">&#9679;</span> No analytics or reporting for event organisers</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hairline"></div>
+
+<!-- THREE OPTIONS -->
+<section style="padding: 60px 0;">
+  <div class="container">
+    <div class="mono-label reveal" style="margin-bottom: 12px; text-align: center;">Your Options</div>
+    <h2 class="font-display reveal reveal-d1" style="font-size: clamp(24px, 4vw, 36px); font-weight: 600; color: var(--text-bright); letter-spacing: -0.02em; margin-bottom: 16px; text-align: center;">
+      Three Ways Forward
+    </h2>
+    <p class="reveal reveal-d2" style="text-align: center; color: var(--text-muted); max-width: 620px; margin: 0 auto 48px; font-size: 15px;">
+      Based on our conversation, I have structured three options. Each solves the problem at a different depth. Pick the one that matches your stage and budget.
+    </p>
+
+    <div class="tier-grid reveal reveal-d3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch;">
+
+      <!-- OPTION A: AUDIT + FIX -->
+      <div class="glass" style="padding: 36px; display: flex; flex-direction: column;">
+        <div class="mono-label" style="margin-bottom: 16px;">Option A</div>
+        <div class="font-display" style="font-size: 18px; font-weight: 600; color: var(--text-bright); margin-bottom: 8px;">
+          Technical Audit + Fix
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 6px;">
+          <span class="font-display" style="font-size: 36px; font-weight: 700; color: var(--text-bright);">&pound;1,500</span>
+          <span style="font-size: 14px; color: var(--text-muted);">one-off</span>
+        </div>
+        <div class="status-badge" style="background: var(--green-dim); border: 1px solid var(--green-border); color: var(--green); margin-bottom: 20px;">
+          QUICKEST TO PILOT
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.7;">
+          I audit your entire codebase and Supabase backend, fix the critical bugs, and deliver a written report on what is solid and what needs attention. Your MVP comes out stronger and pilot-ready.
+        </p>
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 11px; font-size: 13px;">
+          <div><span class="check">&#10003;</span> Full codebase and Supabase audit</div>
+          <div><span class="check">&#10003;</span> Fix all critical bugs (NaN, currency, map)</div>
+          <div><span class="check">&#10003;</span> Security review and hardening</div>
+          <div><span class="check">&#10003;</span> Basic admin dashboard</div>
+          <div><span class="check">&#10003;</span> Written technical report</div>
+          <div><span class="check">&#10003;</span> Scalability assessment</div>
+        </div>
+        <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-dim);">
+          Timeline: 1 to 2 weeks
+        </div>
+      </div>
+
+      <!-- OPTION B: COMPLETE REBUILD -->
+      <div class="glass" style="padding: 36px; display: flex; flex-direction: column; border-color: var(--gold); border-width: 2px;">
+        <div class="gold-label" style="margin-bottom: 16px;">Option B &middot; Recommended</div>
+        <div class="font-display" style="font-size: 18px; font-weight: 600; color: var(--text-bright); margin-bottom: 8px;">
+          Complete Rebuild
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 6px;">
+          <span class="font-display" style="font-size: 36px; font-weight: 700; color: var(--text-bright);">&pound;4,500</span>
+          <span style="font-size: 14px; color: var(--text-muted);">one-off build</span>
+        </div>
+        <div class="status-badge" style="background: var(--gold-dim); border: 1px solid rgba(184,146,46,0.3); color: var(--gold-bright); margin-bottom: 12px;">
+          INVESTOR + PILOT READY
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 20px;">
+          <span style="font-size: 14px; color: var(--text-muted);">then</span>
+          <span class="font-display" style="font-size: 20px; font-weight: 600; color: var(--text-bright);">&pound;500</span>
+          <span style="font-size: 14px; color: var(--text-muted);">/month maintenance</span>
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.7;">
+          Same UI and UX, but rebuilt on clean architecture with proper testing, error handling, and a foundation that will not break when you scale. Delivered complete, then maintained monthly.
+        </p>
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 11px; font-size: 13px;">
+          <div><span class="check">&#10003;</span> Everything in Option A</div>
+          <div><span class="check">&#10003;</span> Clean rebuild of backend architecture</div>
+          <div><span class="check">&#10003;</span> Eva AI fully functional (budget, recommendations)</div>
+          <div><span class="check">&#10003;</span> Full admin dashboard with analytics</div>
+          <div><span class="check">&#10003;</span> Automated vendor onboarding pipeline</div>
+          <div><span class="check">&#10003;</span> Payment integration (Stripe)</div>
+        </div>
+        <div style="margin-top: 20px; padding: 16px; background: var(--surface); border-radius: 12px; font-size: 13px;">
+          <div style="font-weight: 600; color: var(--text-bright); margin-bottom: 8px;">Monthly Maintenance (£500/mo)</div>
+          <div style="display: flex; flex-direction: column; gap: 6px; color: var(--text-muted);">
+            <div><span class="check">&#10003;</span> Ongoing support and bug fixes</div>
+            <div><span class="check">&#10003;</span> Platform monitoring and updates</div>
+            <div><span class="check">&#10003;</span> Monthly strategy call</div>
+          </div>
+        </div>
+        <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-dim);">
+          Timeline: 4 to 6 weeks for complete build
+        </div>
+      </div>
+
+      <!-- OPTION C: SHILOH PARTNERSHIP -->
+      <div class="glass" style="padding: 36px; display: flex; flex-direction: column;">
+        <div class="mono-label" style="margin-bottom: 16px;">Option C</div>
+        <div class="font-display" style="font-size: 18px; font-weight: 600; color: var(--text-bright); margin-bottom: 8px;">
+          Shiloh Partnership
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 6px;">
+          <span class="font-display" style="font-size: 36px; font-weight: 700; color: var(--text-bright);">&pound;2,500</span>
+          <span style="font-size: 14px; color: var(--text-muted);">per month</span>
+        </div>
+        <div class="status-badge" style="background: var(--blue-dim); border: 1px solid var(--blue-border); color: var(--blue); margin-bottom: 20px;">
+          6 MONTH MINIMUM
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.7;">
+          I become your dedicated AI Architect. Minimum six-month engagement, I build whatever EvenX needs: the rebuild, new features, AI integrations, infrastructure, scaling. One flat monthly fee, unlimited scope. Continue month-to-month after that.
+        </p>
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 11px; font-size: 13px;">
+          <div><span class="check">&#10003;</span> Everything in Options A and B</div>
+          <div><span class="check">&#10003;</span> Dedicated AI Architect on retainer</div>
+          <div><span class="check">&#10003;</span> Unlimited builds and features for 6 months</div>
+          <div><span class="check">&#10003;</span> New feature development as you grow</div>
+          <div><span class="check">&#10003;</span> AI integrations across the platform</div>
+          <div><span class="check">&#10003;</span> Technical strategy and architecture guidance</div>
+          <div><span class="check">&#10003;</span> Priority support and weekly check-ins</div>
+          <div><span class="check">&#10003;</span> Investor-ready technical documentation</div>
+        </div>
+        <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-dim);">
+          Timeline: 6 months minimum, starting immediately
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="hairline"></div>
+
+<!-- WHAT GETS FIXED -->
+<section style="padding: 60px 0;">
+  <div class="container">
+    <div class="mono-label reveal" style="margin-bottom: 12px; text-align: center;">Across all options</div>
+    <h2 class="font-display reveal reveal-d1" style="font-size: clamp(24px, 4vw, 36px); font-weight: 600; color: var(--text-bright); letter-spacing: -0.02em; margin-bottom: 16px; text-align: center;">
+      What Gets Done
+    </h2>
+    <p class="reveal reveal-d2" style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 0 auto 48px; font-size: 15px;">
+      Regardless of which option you choose, these are the immediate priorities that will make EvenX investor-ready and pilot-ready.
+    </p>
+
+    <div class="feature-grid reveal reveal-d3" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
+
+      <div class="glass" style="padding: 28px;">
+        <div style="font-size: 24px; margin-bottom: 12px;">1.</div>
+        <div class="font-display" style="font-size: 16px; font-weight: 600; color: var(--text-bright); margin-bottom: 8px;">
+          Backend Audit and Hardening
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.7;">
+          Full review of your Supabase schema, row-level security policies, API endpoints, and data integrity. Fix vulnerabilities before they become problems during your pilot.
+        </p>
+      </div>
+
+      <div class="glass" style="padding: 28px;">
+        <div style="font-size: 24px; margin-bottom: 12px;">2.</div>
+        <div class="font-display" style="font-size: 16px; font-weight: 600; color: var(--text-bright); margin-bottom: 8px;">
+          Admin Dashboard
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.7;">
+          See every signup, every event created, user activity, and platform metrics at a glance. Essential for investor demos and understanding how your pilot users behave.
+        </p>
+      </div>
+
+      <div class="glass" style="padding: 28px;">
+        <div style="font-size: 24px; margin-bottom: 12px;">3.</div>
+        <div class="font-display" style="font-size: 16px; font-weight: 600; color: var(--text-bright); margin-bottom: 8px;">
+          Eva AI Restoration
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.7;">
+          The AI budget allocation and smart recommendations are your key differentiator. These need to work reliably, with proper error handling and fallback logic so they never silently fail.
+        </p>
+      </div>
+
+      <div class="glass" style="padding: 28px;">
+        <div style="font-size: 24px; margin-bottom: 12px;">4.</div>
+        <div class="font-display" style="font-size: 16px; font-weight: 600; color: var(--text-bright); margin-bottom: 8px;">
+          Bug Fixes and Polish
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.7;">
+          NaN guest stats, wrong currency symbols, broken map previews. Small issues that undermine confidence in your product during investor demos and pilot onboarding.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="hairline"></div>
+
+<!-- HOW WE WORK -->
+<section style="padding: 60px 0;">
+  <div class="container">
+    <div class="mono-label reveal" style="margin-bottom: 12px; text-align: center;">Process</div>
+    <h2 class="font-display reveal reveal-d1" style="font-size: clamp(24px, 4vw, 36px); font-weight: 600; color: var(--text-bright); letter-spacing: -0.02em; margin-bottom: 16px; text-align: center;">
+      How It Works
+    </h2>
+
+    <div class="reveal reveal-d2" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+
+      <div class="glass" style="padding: 28px; text-align: center;">
+        <div style="width: 48px; height: 48px; background: var(--gold-dim); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+          <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--gold-bright);">1</span>
+        </div>
+        <div class="font-display" style="font-size: 14px; font-weight: 600; color: var(--text-bright); margin-bottom: 6px;">Access</div>
+        <p style="font-size: 12px; color: var(--text-muted); line-height: 1.6;">You grant me access to your codebase and Supabase project. I review everything.</p>
+      </div>
+
+      <div class="glass" style="padding: 28px; text-align: center;">
+        <div style="width: 48px; height: 48px; background: var(--gold-dim); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+          <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--gold-bright);">2</span>
+        </div>
+        <div class="font-display" style="font-size: 14px; font-weight: 600; color: var(--text-bright); margin-bottom: 6px;">Report</div>
+        <p style="font-size: 12px; color: var(--text-muted); line-height: 1.6;">You receive a written technical audit with every issue categorised by severity and a clear fix plan.</p>
+      </div>
+
+      <div class="glass" style="padding: 28px; text-align: center;">
+        <div style="width: 48px; height: 48px; background: var(--gold-dim); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+          <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--gold-bright);">3</span>
+        </div>
+        <div class="font-display" style="font-size: 14px; font-weight: 600; color: var(--text-bright); margin-bottom: 6px;">Fix</div>
+        <p style="font-size: 12px; color: var(--text-muted); line-height: 1.6;">Critical bugs resolved, admin dashboard built, AI features restored. Your platform is pilot-ready.</p>
+      </div>
+
+      <div class="glass" style="padding: 28px; text-align: center;">
+        <div style="width: 48px; height: 48px; background: var(--gold-dim); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+          <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--gold-bright);">4</span>
+        </div>
+        <div class="font-display" style="font-size: 14px; font-weight: 600; color: var(--text-bright); margin-bottom: 6px;">Grow</div>
+        <p style="font-size: 12px; color: var(--text-muted); line-height: 1.6;">If you choose Options B or C, we continue building month by month as EvenX scales.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="hairline"></div>
+
+<!-- FREE BONUS -->
+<section style="padding: 60px 0;">
+  <div class="container">
+    <div class="glass reveal" style="padding: 40px; text-align: center; border-color: rgba(184,146,46,0.2);">
+      <div class="gold-label" style="margin-bottom: 16px;">Included Free With Any Option</div>
+      <h3 class="font-display" style="font-size: 22px; font-weight: 600; color: var(--text-bright); margin-bottom: 12px;">
+        AI Voice Agent for EvenX
+      </h3>
+      <p style="font-size: 15px; color: var(--text-muted); max-width: 560px; margin: 0 auto; line-height: 1.7;">
+        A custom AI voice agent that handles event enquiries, qualifies leads, and books demo calls for EvenX. Available 24/7. Set up and delivered at no extra cost as part of our work together.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="hairline"></div>
+
+<!-- ABOUT -->
+<section style="padding: 60px 0;">
+  <div class="container">
+    <div class="about-grid reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+      <div>
+        <div class="mono-label" style="margin-bottom: 12px;">About ForeShiloh</div>
+        <h3 class="font-display" style="font-size: 22px; font-weight: 600; color: var(--text-bright); margin-bottom: 16px;">
+          We build AI systems<br>for growing businesses.
+        </h3>
+        <p style="font-size: 14px; color: var(--text-muted); line-height: 1.8; margin-bottom: 16px;">
+          ForeShiloh is an AI consultancy based in Sheffield, UK. We design, build, and maintain AI Operating Systems: custom software that automates the work your team should not be doing manually.
+        </p>
+        <p style="font-size: 14px; color: var(--text-muted); line-height: 1.8;">
+          We hold SEIS Advance Assurance ourselves, so we understand the fundraising journey. We work with founders who need technology to match their ambition.
+        </p>
+      </div>
+      <div class="glass" style="padding: 32px;">
+        <div style="display: flex; flex-direction: column; gap: 20px; font-size: 14px;">
+          <div>
+            <div class="mono-label" style="margin-bottom: 4px;">Your contact</div>
+            <div style="color: var(--text-bright); font-weight: 500;">Daniel Kiing</div>
+            <div style="color: var(--text-muted);">AI Business Architect</div>
+          </div>
+          <div>
+            <div class="mono-label" style="margin-bottom: 4px;">Email</div>
+            <div style="color: var(--text-bright);">daniel.kiing@foreshiloh.com</div>
+          </div>
+          <div>
+            <div class="mono-label" style="margin-bottom: 4px;">Website</div>
+            <div style="color: var(--text-bright);">foreshiloh.com</div>
+          </div>
+          <div>
+            <div class="mono-label" style="margin-bottom: 4px;">Based in</div>
+            <div style="color: var(--text-bright);">Sheffield, United Kingdom</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section style="padding: 40px 0 60px;">
+  <div class="container">
+    <div class="glass reveal" style="padding: 36px; text-align: center; background: var(--surface);">
+      <div class="font-display" style="font-size: 18px; font-weight: 600; color: var(--text-bright); margin-bottom: 12px;">
+        Next Steps
+      </div>
+      <p style="font-size: 14px; color: var(--text-muted); max-width: 520px; margin: 0 auto; line-height: 1.7;">
+        Let me know which option interests you, or if you would like to discuss a hybrid approach. Once agreed, I can start within 48 hours. My WhatsApp is open.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="padding: 32px 40px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;">
+  <div class="wordmark"><span class="fore">FORE</span><span class="shiloh">SHILOH</span></div>
+  <span style="font-size: 12px; color: var(--text-dim);">We build. You dream. AI powers them both.</span>
+</footer>
+
+</body>
+</html>
